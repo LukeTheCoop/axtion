@@ -1,0 +1,53 @@
+I'll create a 30-second military script about a sea to desert battle, carefully matching each line to appropriate videos from the list.
+
+```json
+{
+  "config": [
+    {
+      "line": "What began as a naval assault quickly evolved into a multi-terrain operation.",
+      "video": "military_huge_armored_boat_shooting_cannons.mp4"
+    },
+    {
+      "line": "Our fleet deployed tactical vessels to secure the coastline.",
+      "video": "military_six_armored_boats_moving_fast.mp4"
+    },
+    {
+      "line": "Enemy defenses were formidable, but our naval artillery found its mark.",
+      "video": "military_armored_boat_shooting_in_ocean.mp4"
+    },
+    {
+      "line": "Command coordinated the push inland as marines prepared for beach deployment.",
+      "video": "military_captain_giving_instructions.mp4"
+    },
+    {
+      "line": "First wave units hit the shore, advancing toward hostile territory.",
+      "video": "military_soldiers_running_into_the_ocean.mp4"
+    },
+    {
+      "line": "Air support provided critical reconnaissance as we moved deeper into the desert.",
+      "video": "military_drone_flying_over_the_ocean.mp4"
+    },
+    {
+      "line": "Our armored divisions encountered heavy resistance at the perimeter.",
+      "video": "military_armored_vehicle_on_fire_desert.mp4"
+    },
+    {
+      "line": "Tank battalions pushed through enemy lines, creating a breakthrough corridor.",
+      "video": "military_six_tank_convoy.mp4"
+    },
+    {
+      "line": "Special forces secured key positions while under intense fire.",
+      "video": "military_soldiers_running_through_the_streets_of_a_bombed_town_fighting_desert.mp4"
+    },
+    {
+      "line": "Medevac teams worked tirelessly to extract wounded personnel.",
+      "video": "military_med_evac_rescue_mission_helicopter_desert.mp4"
+    },
+    {
+      "line": "After 72 hours of continuous operations, the objective was secured.",
+      "video": "military_soldiers_salute_each_other.mp4"
+    }
+  ]
+}
+```
+final

@@ -1,0 +1,418 @@
+.musicSettingsContainer {
+  background-color: rgba(20, 33, 73, 0.7);
+  border-radius: 8px;
+  padding: 16px;
+  color: white;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(104, 153, 255, 0.2);
+}
+
+.settingsTitle {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #6c9eff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.settingsTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #6c9eff;
+  box-shadow: 0 0 8px rgba(108, 158, 255, 0.8);
+}
+
+.settingGroup {
+  margin-bottom: 16px;
+}
+
+.settingLabel {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  color: #8aa9cf;
+  font-weight: 500;
+}
+
+.urlInputContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.urlInput {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(104, 153, 255, 0.3);
+  background-color: rgba(20, 33, 73, 0.5);
+  color: white;
+  font-size: 0.9rem;
+}
+
+.urlInput:focus {
+  outline: none;
+  border-color: #6c9eff;
+  box-shadow: 0 0 0 2px rgba(108, 158, 255, 0.25);
+}
+
+.urlInput::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.urlButton {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6c9eff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.urlButton:hover {
+  background-color: #5a8bed;
+}
+
+.urlButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.videoContainer {
+  margin-bottom: 16px;
+  position: relative;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #000;
+}
+
+.videoFrame {
+  display: block;
+  border-radius: 6px;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.sliderValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6c9eff;
+  background-color: rgba(108, 158, 255, 0.1);
+  border-radius: 4px;
+  padding: 2px 6px;
+  min-width: 40px;
+  text-align: center;
+}
+
+.sliderContainer {
+  position: relative;
+  padding: 10px 0;
+}
+
+.slider {
+  width: 100%;
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6c9eff;
+  box-shadow: 0 0 8px rgba(108, 158, 255, 0.6);
+  cursor: pointer;
+  margin-top: -7px;
+  transition: transform 0.1s ease;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #6c9eff;
+  box-shadow: 0 0 8px rgba(108, 158, 255, 0.6);
+  cursor: pointer;
+  border: none;
+  transition: transform 0.1s ease;
+}
+
+.slider::-webkit-slider-thumb:hover, 
+.slider:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb:hover,
+.slider:active::-moz-range-thumb {
+  transform: scale(1.1);
+}
+
+.sliderTrack {
+  position: absolute;
+  top: 19px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.sliderFill {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #6c9eff;
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(108, 158, 255, 0.4);
+  transition: width 0.1s ease;
+}
+
+.sliderMarkers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding: 0 2px;
+}
+
+.sliderMarkers span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.videoActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.saveButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(108, 158, 255, 0.2);
+  color: #6c9eff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.saveButton:hover:not(:disabled) {
+  background-color: rgba(108, 158, 255, 0.3);
+}
+
+.saveButton:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.saveButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.savedVideosSection {
+  border-top: 1px solid rgba(104, 153, 255, 0.1);
+  padding-top: 16px;
+}
+
+.savedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.savedTitle {
+  font-size: 1rem;
+  color: #8aa9cf;
+  font-weight: 600;
+}
+
+.toggleButton {
+  padding: 4px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(108, 158, 255, 0.1);
+  color: #6c9eff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggleButton:hover:not(.disabled) {
+  background-color: rgba(108, 158, 255, 0.2);
+}
+
+.toggleButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slideshowControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.navButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(108, 158, 255, 0.1);
+  color: #6c9eff;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.navButton:hover {
+  background-color: rgba(108, 158, 255, 0.2);
+}
+
+.navButton:active {
+  transform: scale(0.95);
+}
+
+.videoCounter {
+  font-size: 0.8rem;
+  color: #8aa9cf;
+  margin: 0 8px;
+}
+
+.deleteButton {
+  margin-left: auto;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 99, 99, 0.1);
+  color: #ff6363;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deleteButton:hover {
+  background-color: rgba(255, 99, 99, 0.2);
+}
+
+.savedVideosList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.savedVideosList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.savedVideosList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.savedVideosList::-webkit-scrollbar-thumb {
+  background: rgba(104, 153, 255, 0.3);
+  border-radius: 2px;
+}
+
+.savedVideosList::-webkit-scrollbar-thumb:hover {
+  background: rgba(104, 153, 255, 0.5);
+}
+
+.savedVideoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: rgba(108, 158, 255, 0.05);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.savedVideoItem:hover {
+  background-color: rgba(108, 158, 255, 0.1);
+}
+
+.videoTitle {
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+}
+
+.videoItemActions {
+  display: flex;
+  gap: 6px;
+}
+
+.playButton {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(108, 158, 255, 0.2);
+  color: #6c9eff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.playButton:hover {
+  background-color: rgba(108, 158, 255, 0.3);
+}
+
+.deleteVideoButton {
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 99, 99, 0.1);
+  color: #ff6363;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deleteVideoButton:hover {
+  background-color: rgba(255, 99, 99, 0.2);
+} 

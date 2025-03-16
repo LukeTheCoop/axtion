@@ -1,0 +1,57 @@
+I'll create a 30-second military script about a sea battle ending in the ocean, making sure each line matches perfectly with the available videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "The naval task force moved swiftly through contested waters, their mission clear.",
+      "video": "military_boat_on_water_multiple_angles.mp4"
+    },
+    {
+      "line": "Intelligence had detected enemy vessels approaching our strategic shipping lanes.",
+      "video": "military_boats_driving_towards_shipping_yard.mp4"
+    },
+    {
+      "line": "The admiral gathered his officers, outlining the critical engagement ahead.",
+      "video": "military_two_captains_talking.mp4"
+    },
+    {
+      "line": "Our destroyer group formed a defensive perimeter as radar tracked incoming threats.",
+      "video": "military_navy_destroyers_aircraft_carriers_ocean.mp4"
+    },
+    {
+      "line": "Advanced surveillance drones provided real-time targeting data from above.",
+      "video": "military_drone_flying_over_the_ocean.mp4"
+    },
+    {
+      "line": "The order came through: 'All vessels, weapons free. Protect the fleet.'",
+      "video": "military_captain_giving_instructions.mp4"
+    },
+    {
+      "line": "Our swift attack boats surged forward, engines roaring across the whitecaps.",
+      "video": "military_six_armored_boats_moving_fast.mp4"
+    },
+    {
+      "line": "The first salvos erupted from our main batteries, lighting up the horizon.",
+      "video": "military_huge_armored_boat_shooting_cannons.mp4"
+    },
+    {
+      "line": "Enemy vessels returned fire, turning the calm sea into a combat zone.",
+      "video": "military_armored_boat_shooting_in_ocean.mp4"
+    },
+    {
+      "line": "Below the surface, our submarine launched torpedoes at the enemy flagship.",
+      "video": "military_submarine_shooting_torpedoes.mp4"
+    },
+    {
+      "line": "As the battle intensified, a direct hit sparked fires on one of our forward vessels.",
+      "video": "military_firefighter_taking_out_fire_on_ship_ocean.mp4"
+    },
+    {
+      "line": "Victory came at a cost, but our sailors stood proud, defenders of the deep blue.",
+      "video": "military_navy_boats_volcano_beach_ocean.mp4"
+    }
+  ]
+}
+```
+final

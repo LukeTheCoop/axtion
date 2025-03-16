@@ -1,0 +1,349 @@
+.textBoxesContainer {
+  padding: 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.textBoxWrapper {
+  background-color: rgba(20, 33, 73, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(104, 153, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.textBoxWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(104, 153, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.textBoxWrapper.focused {
+  box-shadow: 0 6px 30px rgba(104, 153, 255, 0.3);
+  border-color: rgba(104, 153, 255, 0.4);
+}
+
+.textBoxWrapper.focused::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #6c9eff, #3d7aff);
+  box-shadow: 0 0 15px rgba(104, 153, 255, 0.8);
+}
+
+.textBoxHeader {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(104, 153, 255, 0.15);
+  background-color: rgba(104, 153, 255, 0.05);
+}
+
+.textBoxTitle {
+  color: #6c9eff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textBoxTitle::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #6c9eff;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 8px rgba(104, 153, 255, 0.7);
+}
+
+.textBoxInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #8aa9cf;
+  font-size: 0.85rem;
+}
+
+.textBoxDescription {
+  opacity: 0.8;
+}
+
+.textBoxHotkey {
+  padding: 3px 6px;
+  background-color: rgba(104, 153, 255, 0.1);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: #6c9eff;
+}
+
+.textAreaContainer {
+  padding: 20px;
+  position: relative;
+}
+
+.textArea {
+  width: 100%;
+  resize: none;
+  padding: 16px;
+  background-color: rgba(20, 33, 73, 0.5);
+  border: 1px solid rgba(104, 153, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.textArea:focus {
+  outline: none;
+  border-color: rgba(104, 153, 255, 0.7);
+  box-shadow: 0 0 0 2px rgba(104, 153, 255, 0.15);
+}
+
+.textArea::placeholder {
+  color: rgba(138, 169, 207, 0.5);
+}
+
+.glowingEffect {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(ellipse at center, rgba(104, 153, 255, 0.15) 0%, rgba(104, 153, 255, 0) 70%);
+  pointer-events: none;
+  top: 20%;
+  left: 10%;
+  z-index: 1;
+  opacity: 0.5;
+  animation: float 8s infinite ease-in-out;
+}
+
+.textBoxWrapper.focused .glowingEffect {
+  animation-duration: 5s;
+  opacity: 1;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  25% {
+    transform: translate(5%, 5%) scale(1.1);
+  }
+  50% {
+    transform: translate(10%, -5%) scale(1);
+  }
+  75% {
+    transform: translate(-5%, 5%) scale(0.9);
+  }
+  100% {
+    transform: translate(0%, 0%) scale(1);
+  }
+}
+
+.generateButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  height: 60px;
+  margin: 20px auto;
+  padding: 0 30px;
+  background: linear-gradient(135deg, rgba(104, 153, 255, 0.15) 0%, rgba(169, 104, 255, 0.15) 100%);
+  border: 1px solid rgba(104, 153, 255, 0.4);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(104, 153, 255, 0.2);
+}
+
+.generateButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(104, 153, 255, 0.3) 0%, rgba(169, 104, 255, 0.3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.generateButton:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(104, 153, 255, 0.4);
+}
+
+.generateButton:hover::before {
+  opacity: 1;
+}
+
+.generateButton:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(104, 153, 255, 0.3);
+}
+
+.generateButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generateButtonText {
+  position: relative;
+  z-index: 2;
+}
+
+.generateButtonGlow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(104, 153, 255, 0.4) 0%, rgba(104, 153, 255, 0) 70%);
+  animation: pulse-glow 2s infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+}
+
+.textBoxFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 0 4px;
+}
+
+.pulsingDot {
+  width: 10px;
+  height: 10px;
+  background-color: #6c9eff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.statusText {
+  font-size: 0.9rem;
+  color: #8aa9cf;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(104, 153, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(104, 153, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(104, 153, 255, 0);
+  }
+}
+
+/* For the first text box (Mothership) - Special styling */
+.textBoxWrapper:first-child .textBoxTitle::before {
+  background-color: #ff9a6c;
+  box-shadow: 0 0 8px rgba(255, 154, 108, 0.7);
+}
+
+.textBoxWrapper:first-child .textBoxTitle {
+  color: #ff9a6c;
+}
+
+.textBoxWrapper:first-child.focused::after {
+  background: linear-gradient(to bottom, #ff9a6c, #ff7e4a);
+  box-shadow: 0 0 15px rgba(255, 154, 108, 0.8);
+}
+
+.textBoxWrapper:first-child .textBoxHotkey {
+  color: #ff9a6c;
+  background-color: rgba(255, 154, 108, 0.1);
+}
+
+.textBoxWrapper:first-child .generateButton {
+  background: linear-gradient(135deg, rgba(255, 154, 108, 0.15) 0%, rgba(169, 104, 255, 0.15) 100%);
+  border-color: rgba(255, 154, 108, 0.4);
+}
+
+.textBoxWrapper:first-child .generateButton:hover:not(:disabled) {
+  box-shadow: 0 8px 30px rgba(255, 154, 108, 0.4);
+}
+
+.textBoxWrapper:first-child .generateButton::before {
+  background: linear-gradient(135deg, rgba(255, 154, 108, 0.3) 0%, rgba(169, 104, 255, 0.3) 100%);
+}
+
+.textBoxWrapper:first-child .generateButtonGlow {
+  background: radial-gradient(circle at center, rgba(255, 154, 108, 0.4) 0%, rgba(255, 154, 108, 0) 70%);
+}
+
+/* Override the submitButton styles references for the first text box since we now use generateButton */
+.textBoxWrapper:first-child .submitButton {
+  display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .textBoxesContainer {
+    padding: 20px;
+  }
+  
+  .textBoxHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .textBoxInfo {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .generateButton {
+    height: 50px;
+    font-size: 1rem;
+  }
+} 

@@ -1,0 +1,101 @@
+I'll create a script about a sea battle ending in the ocean, carefully matching each line with appropriate videos from the list.
+
+```json
+{
+  "config": [
+    {
+      "line": "Operation Neptune's Wrath began at dawn, as our naval fleet mobilized toward the contested shipping lanes.",
+      "video": "military_boat_on_water_multiple_angles.mp4"
+    },
+    {
+      "line": "Intelligence had confirmed enemy vessels were converging on our strategic supply routes.",
+      "video": "military_soldier_doing_analysis_on_computers.mp4"
+    },
+    {
+      "line": "Admiral Hayes gathered his commanders for final briefing before engagement.",
+      "video": "military_commander_meeting.mp4"
+    },
+    {
+      "line": "\"This battle will determine control of the entire western seaboard,\" the Captain explained to his crew.",
+      "video": "military_captain_giving_instructions.mp4"
+    },
+    {
+      "line": "Our surveillance drones captured enemy movements, transmitting real-time coordinates to command.",
+      "video": "military_drone_flying_over_the_ocean.mp4"
+    },
+    {
+      "line": "The radar operators tracked multiple hostile signatures approaching from the northeast.",
+      "video": "military_radar_nvg.mp4"
+    },
+    {
+      "line": "Six destroyer-class vessels formed our forward assault formation, cutting through the waves at maximum speed.",
+      "video": "military_six_armored_boats_moving_fast.mp4"
+    },
+    {
+      "line": "As we approached the enemy fleet, our aircraft carrier launched fighter jets to establish air superiority.",
+      "video": "military_jet_flying_in_air.mp4"
+    },
+    {
+      "line": "The massive naval armada represented the full might of our maritime defense forces.",
+      "video": "military_navy_destroyers_aircraft_carriers_ocean.mp4"
+    },
+    {
+      "line": "Without warning, enemy vessels opened fire, their artillery shells creating massive water plumes.",
+      "video": "military_huge_armored_boat_shooting_cannons.mp4"
+    },
+    {
+      "line": "Our gunners returned fire, the deck shuddering beneath the recoil of our main batteries.",
+      "video": "military_armored_boat_shooting_in_ocean.mp4"
+    },
+    {
+      "line": "The battle intensified as our submarine launched torpedoes at the enemy's exposed flank.",
+      "video": "military_submarine_shooting_torpedoes.mp4"
+    },
+    {
+      "line": "A direct hit! One of the enemy vessels erupted in flames, creating a tactical gap in their defense.",
+      "video": "military_armored_vehicle_on_fire_desert.mp4"
+    },
+    {
+      "line": "\"Fire teams to the port side! We have a situation developing!\" shouted Lieutenant Rodriguez.",
+      "video": "military_two_captains_talking.mp4"
+    },
+    {
+      "line": "Our damage control teams rushed to extinguish fires that threatened ammunition storage.",
+      "video": "military_firefighter_taking_out_fire_on_ship_ocean.mp4"
+    },
+    {
+      "line": "The battle took an unexpected turn as volcanic activity near the island created hazardous conditions.",
+      "video": "military_navy_boats_volcano_beach_ocean.mp4"
+    },
+    {
+      "line": "A distress call came in - we had men overboard from one of our forward vessels.",
+      "video": "military_soldiers_running_into_the_ocean.mp4"
+    },
+    {
+      "line": "Medevac helicopters were dispatched immediately to retrieve wounded sailors from the churning waters.",
+      "video": "military_med_evac_soldiers_getting_rescued_by_helicopter_oil_rig_ocean.mp4"
+    },
+    {
+      "line": "As night fell, our night vision capabilities gave us the tactical advantage we needed.",
+      "video": "military_soldier_running_in_night_nvg.mp4"
+    },
+    {
+      "line": "The decisive moment came when our artillery batteries coordinated a synchronized barrage.",
+      "video": "military_artillery_cannon.mp4"
+    },
+    {
+      "line": "By morning, the enemy fleet had been neutralized, with several vessels captured intact.",
+      "video": "military_boats_driving_towards_shipping_yard.mp4"
+    },
+    {
+      "line": "The victory came at a cost - we held a solemn ceremony for the brave sailors lost in the engagement.",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    },
+    {
+      "line": "Operation Neptune's Wrath secured our maritime borders, ensuring safe passage for civilian and military vessels for years to come.",
+      "video": "military_bridge_drone_shot.mp4"
+    }
+  ]
+}
+```
+final

@@ -1,0 +1,343 @@
+# Implementing a Live Loading Screen in Next.js for the Video Generation API
+
+This document explains how to create a live loading screen in a Next.js frontend that displays the progress of video generation tasks from the backend API, and how to retrieve and display the completed video.
+
+## Overview
+
+The video generation process involves multiple stages:
+1. Script generation (AI agent or custom script)
+2. Extract information from the script
+3. Audio generation from the script
+4. Video control file creation
+5. Video merging
+6. Caption addition
+7. Background music addition (optional)
+8. Cloud upload (Cloudinary)
+
+The frontend needs to show this progress in real-time and display the final video when ready.
+
+## API Endpoints
+
+The relevant API endpoints for tracking a task are:
+- `POST /process` - Start a video generation task
+- `GET /tasks/{task_id}` - Get the current status of a task
+- `GET /video/{task_id}` - Get the video URL once completed
+- `GET /video/{task_id}/local` - Get the local video file if cloud upload failed
+
+## Music Extraction Feature
+
+The application supports adding background music from YouTube videos. This feature:
+
+1. Takes a YouTube URL and extracts the audio as an MP3
+2. Uses multiple fallback mechanisms:
+   - yt-dlp (external command-line tool)
+   - youtube-dl (external command-line tool)
+   - pytube (Python library)
+
+### Setting Up Music Extraction
+
+To enable music extraction, install one of the following:
+
+```bash
+# Option 1: yt-dlp (recommended)
+pip install yt-dlp
+
+# Option 2: youtube-dl
+pip install youtube-dl
+
+# Option 3: pytube with moviepy (pure Python solution)
+pip install pytube moviepy
+```
+
+### Using Music in the Frontend
+
+Add a YouTube URL input field to your form component:
+
+```tsx
+// components/VideoGenerationForm.tsx
+// ... existing imports ...
+
+export default function VideoGenerationForm({ onTaskStarted }) {
+  // ... existing state ...
+  const [youtubeUrl, setYoutubeUrl] = useState('');
+
+  // ... existing handleSubmit ...
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    try {
+      const response = await axios.post('http://localhost:8000/process', {
+        prompt,
+        mothership,
+        use_agent: true,
+        youtube_music_url: youtubeUrl  // Send YouTube URL for background music
+      });
+      
+      if (response.data.status === 'success') {
+        onTaskStarted(response.data.task_id);
+      }
+    } catch (error) {
+      console.error('Error starting video generation:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* ... existing form fields ... */}
+      
+      <div className="mb-4">
+        <label className="block mb-2">Background Music (Optional)</label>
+        <input 
+          type="text" 
+          className="w-full p-2 border rounded"
+          value={youtubeUrl}
+          onChange={(e) => setYoutubeUrl(e.target.value)}
+          placeholder="YouTube URL for background music"
+        />
+        <p className="text-sm text-gray-600 mt-1">
+          Add a YouTube URL to use as background music in your video
+        </p>
+      </div>
+      
+      {/* ... submit button ... */}
+    </form>
+  );
+}
+```
+
+## Implementing the Frontend
+
+### 1. Starting a New Task
+
+Create a form component that submits a request to start a new video generation task:
+
+```tsx
+// components/VideoGenerationForm.tsx
+import { useState } from 'react';
+import axios from 'axios';
+
+export default function VideoGenerationForm({ onTaskStarted }) {
+  const [prompt, setPrompt] = useState('');
+  const [mothership, setMothership] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    
+    try {
+      const response = await axios.post('http://localhost:8000/process', {
+        prompt,
+        mothership,
+        use_agent: true
+      });
+      
+      if (response.data.status === 'success') {
+        onTaskStarted(response.data.task_id);
+      }
+    } catch (error) {
+      console.error('Error starting video generation:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="mb-4">
+        <label className="block mb-2">Mothership Context (Optional)</label>
+        <textarea 
+          className="w-full p-2 border rounded" 
+          value={mothership} 
+          onChange={(e) => setMothership(e.target.value)}
+          placeholder="Add context to guide the content creation..."
+        />
+      </div>
+      
+      <div className="mb-4">
+        <label className="block mb-2">Prompt</label>
+        <textarea 
+          className="w-full p-2 border rounded" 
+          value={prompt} 
+          onChange={(e) => setPrompt(e.target.value)}
+          placeholder="What kind of video would you like to generate?"
+          required
+        />
+      </div>
+      
+      <button 
+        type="submit" 
+        className="px-4 py-2 bg-blue-500 text-white rounded"
+        disabled={loading}
+      >
+        {loading ? 'Starting...' : 'Generate Video'}
+      </button>
+    </form>
+  );
+}
+```
+
+### 2. Creating a Progress Tracker Component
+
+Create a component that polls the API for task status updates:
+
+```tsx
+// components/VideoProgressTracker.tsx
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const POLLING_INTERVAL = 2000; // Poll every 2 seconds
+
+export default function VideoProgressTracker({ taskId, onComplete }) {
+  const [status, setStatus] = useState('pending');
+  const [message, setMessage] = useState('Task created, waiting to start');
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState(null);
+  const [videoData, setVideoData] = useState(null);
+
+  // Map API status messages to progress percentages
+  const getProgressPercentage = (statusMessage) => {
+    const progressMap = {
+      'Starting video generation process': 5,
+      'Generating script using AI agent': 10,
+      'Using provided custom script': 15,
+      'Extracting data from script': 20,
+      'Extracted': 25, // For messages like "Extracted X lines from script"
+      'Generating speech audio': 30,
+      'Speech audio generated successfully': 40,
+      'Creating video control file': 50,
+      'Merging videos': 60,
+      'Adding captions to video': 80,
+      'Adding background music': 85,
+      'Uploading video to cloud storage': 90,
+      'Video generated successfully': 100,
+      'Cloudinary upload failed, but local video was created successfully': 100
+    };
+
+    // Find the matching status pattern
+    for (const [key, value] of Object.entries(progressMap)) {
+      if (statusMessage.includes(key)) {
+        return value;
+      }
+    }
+    return progress; // Keep current progress if no match
+  };
+
+  useEffect(() => {
+    if (!taskId) return;
+
+    const checkStatus = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/tasks/${taskId}`);
+        const taskData = response.data;
+        
+        setStatus(taskData.status);
+        setMessage(taskData.message || '');
+        setProgress(getProgressPercentage(taskData.message || ''));
+        
+        // If task is completed or failed, stop polling
+        if (taskData.status === 'completed') {
+          // Get the video URL
+          const videoResponse = await axios.get(`http://localhost:8000/video/${taskId}`);
+          setVideoData(videoResponse.data);
+          if (onComplete) onComplete(videoResponse.data);
+        } else if (taskData.status === 'failed') {
+          setError(taskData.message || 'Task failed');
+        }
+      } catch (error) {
+        setError(`Error fetching task status: ${error.message}`);
+      }
+    };
+
+    // Start polling
+    const interval = setInterval(checkStatus, POLLING_INTERVAL);
+    
+    // Initial check
+    checkStatus();
+    
+    // Cleanup on unmount
+    return () => clearInterval(interval);
+  }, [taskId, onComplete]);
+
+  // Determine the appropriate message to show
+  const getStageMessage = () => {
+    if (error) return error;
+    if (status === 'completed') return 'Video generated successfully!';
+    return message || 'Processing...';
+  };
+
+  return (
+    <div className="mt-4">
+      <h3 className="text-lg font-semibold">Video Generation Progress</h3>
+      
+      <div className="mt-2 bg-gray-200 rounded-full h-2.5">
+        <div 
+          className="bg-blue-600 h-2.5 rounded-full" 
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
+      
+      <p className="mt-2">{getStageMessage()}</p>
+      <p className="text-sm text-gray-500">Status: {status} ({progress}%)</p>
+      
+      {status === 'completed' && videoData && (
+        <div className="mt-4">
+          <h4 className="font-medium">Video Ready!</h4>
+          {/* Handle different video sources based on the response */}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+## Persistent Task Tracking
+
+The backend API now uses a persistent JSON file database to track task statuses, which ensures:
+
+1. Task information survives server restarts
+2. Task updates work reliably across multiple workers or serverless environments
+3. The frontend can retrieve accurate task status information at any time
+
+This persistent storage means that for a Next.js application:
+
+1. Users can refresh the page without losing track of their task
+2. The frontend can store task IDs in localStorage to allow users to check back later
+3. Page reloads won't interrupt the progress display
+
+### Implementing Task Persistence in the Frontend
+
+Add this to your Next.js application to enable task persistence:
+
+```tsx
+// hooks/useTaskPersistence.js
+import { useState, useEffect } from 'react';
+
+export function useTaskPersistence() {
+  const [activeTaskId, setActiveTaskId] = useState(null);
+  
+  // Load task ID from localStorage on initial load
+  useEffect(() => {
+    const savedTaskId = localStorage.getItem('activeTaskId');
+    if (savedTaskId) {
+      setActiveTaskId(savedTaskId);
+    }
+  }, []);
+  
+  // Save task ID to localStorage whenever it changes
+  const startTask = (taskId) => {
+    localStorage.setItem('activeTaskId', taskId);
+    setActiveTaskId(taskId);
+  };
+  
+  // Clear task ID when complete
+  const clearTask = () => {
+    localStorage.removeItem('activeTaskId');
+    setActiveTaskId(null);
+  };
+  
+  return { activeTaskId, startTask, clearTask };
+} 

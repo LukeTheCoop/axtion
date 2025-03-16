@@ -1,0 +1,97 @@
+I'll create a military sea battle story where each line is perfectly matched to an appropriate video from the provided list.
+
+```json
+{
+  "config": [
+    {
+      "line": "Operation Neptune's Fury began with a tense briefing aboard the USS Sentinel.",
+      "video": "military_two_captains_talking.mp4"
+    },
+    {
+      "line": "Captain Reynolds outlined the mission to intercept a rogue fleet threatening international shipping lanes.",
+      "video": "military_captain_giving_instructions.mp4"
+    },
+    {
+      "line": "Intelligence analysts monitored enemy movements through satellite imagery and radar systems.",
+      "video": "military_soldier_doing_analysis_on_computers.mp4"
+    },
+    {
+      "line": "Our advanced surveillance drones provided real-time footage of the enemy's position beyond the horizon.",
+      "video": "military_drone_flying_over_the_ocean.mp4"
+    },
+    {
+      "line": "At dawn, our naval strike group deployed, six destroyers moving in perfect formation toward the conflict zone.",
+      "video": "military_six_armored_boats_moving_fast.mp4"
+    },
+    {
+      "line": "The fleet commander ordered battle stations as we approached the strategic shipping corridor.",
+      "video": "military_boats_driving_towards_shipping_yard.mp4"
+    },
+    {
+      "line": "Our aircraft carrier launched fighter jets to establish air superiority over the contested waters.",
+      "video": "military_jet_flying_in_air.mp4"
+    },
+    {
+      "line": "The enemy was spotted - their naval force was larger than expected, with heavily armed vessels.",
+      "video": "military_navy_destroyers_aircraft_carriers_ocean.mp4"
+    },
+    {
+      "line": "Night vision systems detected hostile movement as darkness fell over the churning ocean.",
+      "video": "military_radar_nvg.mp4"
+    },
+    {
+      "line": "Our submarine silently maneuvered into position, ready to unleash its devastating payload.",
+      "video": "military_submarine_shooting_torpedoes.mp4"
+    },
+    {
+      "line": "The battle erupted when our flagship opened fire, its main batteries thundering across the waves.",
+      "video": "military_huge_armored_boat_shooting_cannons.mp4"
+    },
+    {
+      "line": "Smaller patrol boats engaged in close-quarters combat, their weapons lighting up the night sky.",
+      "video": "military_armored_boat_shooting_in_ocean.mp4"
+    },
+    {
+      "line": "Our jets streaked toward their targets, precision munitions locked on enemy vessels.",
+      "video": "military_jet_flying_to_target.mp4"
+    },
+    {
+      "line": "The tide turned when we disabled their command vessel in a coordinated strike.",
+      "video": "military_boat_on_water_multiple_angles.mp4"
+    },
+    {
+      "line": "Amidst the chaos, a fire broke out on one of our forward vessels.",
+      "video": "military_armored_vehicle_on_fire_desert.mp4"
+    },
+    {
+      "line": "Emergency response teams rushed to contain the blaze before it reached critical systems.",
+      "video": "military_firefighter_taking_out_fire_on_ship_ocean.mp4"
+    },
+    {
+      "line": "A distress call came in - our allies were pinned down near a volcanic shoreline.",
+      "video": "military_navy_boats_volcano_beach_ocean.mp4"
+    },
+    {
+      "line": "As the battle intensified, a rescue mission was launched to extract wounded personnel from a damaged oil platform.",
+      "video": "military_med_evac_soldiers_getting_rescued_by_helicopter_oil_rig_ocean.mp4"
+    },
+    {
+      "line": "Marine tactical teams deployed directly into the ocean to secure floating debris and sensitive materials.",
+      "video": "military_soldiers_running_into_the_ocean.mp4"
+    },
+    {
+      "line": "With dawn breaking, the enemy forces had been neutralized, but at significant cost.",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    },
+    {
+      "line": "The mission's success was recognized weeks later at Naval Command Headquarters.",
+      "video": "military_medal_ceremony.mp4"
+    },
+    {
+      "line": "Operation Neptune's Fury would be remembered as the decisive engagement that restored peace to these troubled waters.",
+      "video": "military_bridge_drone_shot.mp4"
+    }
+  ]
+}
+```
+final

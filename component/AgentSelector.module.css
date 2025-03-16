@@ -1,0 +1,168 @@
+.agentSelectorContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.agentSelectorLabel {
+  font-size: 0.9rem;
+  color: #8aa9cf;
+  white-space: nowrap;
+}
+
+.agentOptions {
+  display: flex;
+  gap: 12px;
+}
+
+.agentOption {
+  position: relative;
+  padding: 8px 16px;
+  background-color: rgba(104, 153, 255, 0.1);
+  border: 1px solid rgba(104, 153, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 90px;
+  text-align: center;
+}
+
+.agentOption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(104, 153, 255, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  border-radius: 5px;
+}
+
+.agentOption:hover:not(.disabled)::before {
+  opacity: 1;
+}
+
+.agentOption.selected {
+  background-color: rgba(104, 153, 255, 0.2);
+  border-color: rgba(104, 153, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(104, 153, 255, 0.2);
+}
+
+.agentOption.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.agentName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.agentDescription {
+  font-size: 0.7rem;
+  color: #8aa9cf;
+}
+
+.comingSoonBadge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 3px 6px;
+  font-size: 0.6rem;
+  background-color: rgba(255, 154, 108, 0.2);
+  color: #ff9a6c;
+  border-radius: 10px;
+  white-space: nowrap;
+  transform: scale(0.9);
+  border: 1px solid rgba(255, 154, 108, 0.3);
+}
+
+.selectionIndicator {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.selectionDot {
+  width: 4px;
+  height: 4px;
+  background-color: #6c9eff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 0 8px rgba(104, 153, 255, 0.8);
+}
+
+.selectionDot::before,
+.selectionDot::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background-color: rgba(104, 153, 255, 0.5);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.selectionDot::before {
+  width: 12px;
+  right: 6px;
+}
+
+.selectionDot::after {
+  width: 12px;
+  left: 6px;
+}
+
+/* Agent type specific styles */
+.agentOption:first-child {
+  background-color: rgba(104, 153, 255, 0.05);
+}
+
+.agentOption:first-child.selected {
+  background-color: rgba(104, 153, 255, 0.15);
+}
+
+.agentOption:last-child {
+  background-color: rgba(169, 104, 255, 0.05);
+}
+
+.agentOption:last-child.selected {
+  background-color: rgba(169, 104, 255, 0.15);
+  border-color: rgba(169, 104, 255, 0.4);
+}
+
+.agentOption:last-child .selectionDot {
+  background-color: #a968ff;
+  box-shadow: 0 0 8px rgba(169, 104, 255, 0.8);
+}
+
+.agentOption:last-child .selectionDot::before,
+.agentOption:last-child .selectionDot::after {
+  background-color: rgba(169, 104, 255, 0.5);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .agentSelectorContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .agentOptions {
+    width: 100%;
+  }
+  
+  .agentOption {
+    flex: 1;
+  }
+} 

@@ -1,0 +1,49 @@
+I'll create a short military script about a desert battle that perfectly matches available videos, with each line crafted specifically for the corresponding video.
+
+```json
+{
+  "config": [
+    {
+      "line": "The desert sun beat down as our forward units spotted enemy positions on the horizon.",
+      "video": "military_soldier_sniping_in_mountains.mp4"
+    },
+    {
+      "line": "Command quickly mobilized our armored division, tanks rolling across the harsh terrain.",
+      "video": "military_six_tank_convoy.mp4"
+    },
+    {
+      "line": "Air support was called in, fighter jets screaming overhead toward their targets.",
+      "video": "military_jet_flying_to_target.mp4"
+    },
+    {
+      "line": "Enemy vehicles erupted in flames as our precision strikes found their mark.",
+      "video": "military_armored_vehicle_on_fire_desert.mp4"
+    },
+    {
+      "line": "Our infantry advanced through the chaos, moving tactically between positions.",
+      "video": "military_soldiers_running_through_the_streets_of_a_bombed_town_fighting_desert.mp4"
+    },
+    {
+      "line": "The battle intensified as we pushed forward into the heart of the conflict.",
+      "video": "military_large_battle_scene_heavy_action_aerial_shot.mp4"
+    },
+    {
+      "line": "When casualties mounted, medevac teams rushed in, extracting the wounded under fire.",
+      "video": "military_med_evac_rescue_mission_helicopter_desert.mp4"
+    },
+    {
+      "line": "Brave soldiers carried their injured comrades to safety, never leaving anyone behind.",
+      "video": "military_soldiers_carrying_away_injured_soldiers_desert.mp4"
+    },
+    {
+      "line": "As dusk fell, we secured the area, our mission accomplished despite the heavy cost.",
+      "video": "military_wartorn_city_drone_shot.mp4"
+    },
+    {
+      "line": "In the quiet aftermath, we honored those who made the ultimate sacrifice for freedom.",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    }
+  ]
+}
+```
+final

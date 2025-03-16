@@ -1,0 +1,346 @@
+# Example API Pipeline Responses
+
+## 1. Generate Script
+
+### Request
+```
+POST /api/generate-script
+{
+  "mothership": "Create a video about rocket science",
+  "prompt": "Explain the basics of rocket propulsion in an engaging way",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Script generated successfully",
+  "data": {
+    "script": "Rocket science isn't just for the elite minds of NASA...[full script content]...and that's the fundamental science behind rocket propulsion."
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## 2. Parse Script
+
+### Request
+```
+POST /api/parse-script
+{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Script parsed successfully",
+  "data": {
+    "lines": [
+      {
+        "line": "Rocket science isn't just for the elite minds of NASA."
+      },
+      {
+        "line": "At its core, it's about understanding the basic principles of Newton's Third Law."
+      },
+      ...
+    ],
+    "videos": [
+      {
+        "video_path": "app/data/videos/military/rocket_launch.mp4",
+        "start_time": 0,
+        "end_time": 5.6
+      },
+      ...
+    ]
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## 3. Create Speech
+
+### Request
+```
+POST /api/create-speech
+{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Speech created successfully",
+  "data": {
+    "audio_path": "app/data/current/output_audio.mp3",
+    "timestamps_path": "app/data/current/output_timestamps.json"
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## 4. Merge Videos
+
+### Request
+```
+POST /api/merge-videos
+{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Videos merged successfully",
+  "data": {
+    "video_path": "app/data/current/output.mp4",
+    "video_control_path": "app/data/current/video_control.json"
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## 5. Add Captions
+
+### Request
+```
+POST /api/add-captions
+{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Captions added successfully",
+  "data": {
+    "video_path": "app/data/current/output_with_captions.mp4"
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## 6. Add Music
+
+### Request
+```
+POST /api/add-music
+{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Music added successfully",
+  "data": {
+    "video_path": "app/data/current/output_final.mp4"
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## 7. Get Video URL
+
+### Request
+```
+POST /api/get-video-url
+{
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Video URL retrieved successfully",
+  "data": {
+    "video_url": "https://cdn.example.com/videos/550e8400-e29b-41d4-a716-446655440000.mp4"
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## Optional: Set Music Parameters
+
+### Request
+```
+POST /api/set-music-params?session_id=550e8400-e29b-41d4-a716-446655440000&youtube_url=https://www.youtube.com/watch?v=dQw4w9WgXcQ&volume=40&start_time=10
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Music parameters updated successfully",
+  "data": {
+    "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "volume": 40,
+    "start_time": 10
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## Check Session Status
+
+### Request
+```
+GET /api/session/550e8400-e29b-41d4-a716-446655440000
+```
+
+### Response
+```json
+{
+  "success": true,
+  "message": "Session retrieved successfully",
+  "data": {
+    "created_at": 1625097600,
+    "script": "Rocket science isn't just for the elite minds of NASA...[full script content]",
+    "audio_path": "app/data/current/output_audio.mp3",
+    "video_path": "app/data/current/output.mp4",
+    "captioned_video_path": "app/data/current/output_with_captions.mp4",
+    "final_video_path": "app/data/current/output_final.mp4",
+    "genre": "military",
+    "agent": "medium",
+    "timestamps_path": "app/data/current/output_timestamps.json",
+    "video_control_path": "app/data/current/video_control.json"
+  },
+  "session_id": "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+## Configuration Settings
+
+The following examples show how to use the 'get' action to retrieve individual settings.
+
+### 1. Get Agent Configuration
+
+#### Request
+```
+POST /api/config
+{
+  "object": "agent",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+#### Response
+```json
+{
+  "success": true,
+  "message": "Config updated successfully",
+  "data": {
+    "system_prompt": "You are a creative video script generator. Your task is to create engaging scripts that match perfectly with available video clips. Each script should tell a cohesive story with lines that correspond to specific videos in our library."
+  },
+  "object": "agent",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+### 2. Get Voice Configuration
+
+#### Request
+```
+POST /api/config
+{
+  "object": "voice",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+#### Response
+```json
+{
+  "success": true,
+  "message": "Config updated successfully",
+  "data": {
+    "voice_id": "Edward",
+    "speed": 0,
+    "pitch": 1
+  },
+  "object": "voice",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+### 3. Get Music Configuration
+
+#### Request
+```
+POST /api/config
+{
+  "object": "music",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+#### Response
+```json
+{
+  "success": true,
+  "message": "Config updated successfully",
+  "data": {
+    "url": "https://www.youtube.com/watch?v=V9PVRfjEBTI",
+    "volume": 50,
+    "start_time": 0
+  },
+  "object": "music",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+### 4. Get User Configuration
+
+#### Request
+```
+POST /api/config
+{
+  "object": "user",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+```
+
+#### Response
+```json
+{
+  "success": true,
+  "message": "Config updated successfully",
+  "data": {
+    "last_used_mothership": "Be creative",
+    "last_used_prompt": "Write a short military story about a sea battle that ends in the ocean."
+  },
+  "object": "user",
+  "action": "get",
+  "genre": "military",
+  "agent": "medium"
+}
+``` 

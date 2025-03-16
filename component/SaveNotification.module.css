@@ -1,0 +1,88 @@
+.saveNotification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background-color: rgba(20, 20, 40, 0.9);
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(100, 100, 255, 0.2);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(92, 122, 255, 0.3);
+  min-width: 280px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.entering {
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  animation: slideIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.exiting {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.saveIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(74, 222, 128, 0.2);
+  border-radius: 50%;
+  padding: 6px;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.saveIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.saveMessage {
+  font-size: 16px;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50%) translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+  }
+} 

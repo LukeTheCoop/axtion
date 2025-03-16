@@ -1,0 +1,140 @@
+{
+    "example1": [
+        {
+          "line": "In January 1991, coalition forces launched Operation Desert Storm, a military campaign that would forever transform modern warfare. ",
+          "video": "military_large_battle_scene_heavy_action_aerial_shot.mp4"
+        },
+        {
+          "line": "The Saudi Arabian Desert became the staging ground for one of history's most decisive air campaigns. ",
+          "video": "military_med_evac_desert_wide.mp4"
+        },
+        {
+          "line": "Hundreds of fighter jets prepared for missions that would redefine battlefield dominance. ",
+          "video": "military_jet_flying_in_air.mp4"
+        },
+        {
+          "line": "Before dawn on January 17th, the skies over Iraq erupted with precision strikes. ",
+          "video": "military_jet_flying_to_target.mp4"
+        },
+        {
+          "line": "F-50 eagles and F-16 fighting Falcon thundered across the board, targeting Saddam Hussein's command and control centers with surgical accuracy. ",
+          "video": "military_airport_operations.mp4"
+        },
+        {
+          "line": "Within hours, coalition forces had achieved near total air superiority, executing over 1,000 sorties in just the first 24 hours. ",
+          "video": "military_jet_flying_in_air.mp4"
+        },
+        {
+          "line": "On the ground, massive tank formations advanced across the harsh desert terrain. ",
+          "video": "military_six_tank_convoy.mp4"
+        },
+        {
+          "line": "M1a1 Abrams tanks and Bradley fighting vehicles moved in coordinated assault patterns. ",
+          "video": "military_tank_convoy_green_field.mp4"
+        },
+        {
+          "line": "The speed and precision of these armored thrusts left enemy forces disoriented and outmaneuvered. ",
+          "video": "military_tank.mp4"
+        },
+        {
+          "line": "As ground operations intensified, UHE-60 Blackhawks delivered fresh troops directly into contested zones. ",
+          "video": "military_helicopter_dropping_soldiers.mp4"
+        },
+        {
+          "line": "Special operations teams conducted rapid insertions behind enemy lines, disrupting supply chains and communications networks. ",
+          "video": "military_soldier_repelling_from_helicopter.mp4"
+        },
+        {
+          "line": "When casualties When the policies occurred, medevac units demonstrated extraordinary courage, extracting wounded personnel under heavy fire. ",
+          "video": "military_group_med_evac_motivational.mp4"
+        },
+        {
+          "line": "The 43-day campaign showcased unprecedented military coordination. ",
+          "video": "military_commander_meeting.mp4"
+        },
+        {
+          "line": "Artillary batteries delivered devastating preparatory fire while tank columns executed flanking maneuvers. ",
+          "video": "military_artillery_cannon.mp4"
+        },
+        {
+          "line": "The synchronization between air and ground forces created an overwhelming tempo. ",
+          "video": "military_soldiers_running_in_battle.mp4"
+        },
+        {
+          "line": "Iraqi forces couldn't match this coordinated assault. ", 
+          "video": "military_armored_vehicle_on_fire_desert.mp4"
+        },
+        {
+          "line": "Operation Desert Storm's legacy extends beyond its swift victory. ",
+          "video": "military_medal_ceremony.mp4"
+        },
+        {
+          "line": "It established the blueprint for modern combined arm warfarin, where precision weapons, advanced reconnaissance, and rapid mobility converge to achieve decisive results with minimal friendly casualties. ",
+          "video": "military_soldier_doing_analysis_on_computers.mp4"
+        },
+        {
+          "line": "The Desert campaign didn't just end a conflict. It revolutionized how wars would be fought for decades to come.",
+          "video": "military_wartorn_city_drone_shot.mp4"
+        }
+    ],
+    "example2": [
+        {
+          "line": "The Battle of Fallujah marked one of the most intense urban warfare operations in recent military history.",
+          "video": "military_urban_warfare_overview.mp4" 
+        },
+        {
+          "line": "In November 2004, U.S. Marines and Army forces launched a coordinated assault to clear the city of insurgent fighters.",
+          "video": "military_troops_entering_urban_area.mp4"
+        },
+        {
+          "line": "Block by block, room by room, coalition forces engaged in close-quarters combat against a determined enemy.",
+          "video": "military_urban_combat_room_clearing.mp4"
+        },
+        {
+          "line": "Snipers positioned on rooftops provided overwatch while infantry squads methodically cleared buildings.",
+          "video": "military_sniper_team_on_rooftop.mp4"
+        },
+        {
+          "line": "The operation showcased modern urban warfare tactics, including the use of precision munitions to minimize civilian casualties.",
+          "video": "military_precision_strike_urban.mp4"
+        },
+        {
+          "line": "Despite fierce resistance, the coalition's superior training and equipment proved decisive.",
+          "video": "military_troops_with_advanced_equipment.mp4"
+        },
+        {
+          "line": "The battle highlighted the challenges of modern asymmetric warfare and the importance of combined arms operations in densely populated environments.",
+          "video": "military_urban_combined_arms.mp4"
+        }
+    ],
+    "example3": [
+        {
+          "line": "In the aftermath of Hurricane Katrina, the U.S. military deployed in one of its largest domestic humanitarian operations.",
+          "video": "military_hurricane_aftermath_aerial.mp4"
+        },
+        {
+          "line": "Within 72 hours of the disaster, amphibious assault ships, hospital ships, and aircraft carriers converged on the Gulf Coast.",
+          "video": "military_naval_vessels_coast.mp4"
+        },
+        {
+          "line": "National Guard units established emergency distribution centers while Navy helicopters conducted search and rescue operations in flooded neighborhoods.",
+          "video": "military_helicopter_rescue_flood.mp4"
+        },
+        {
+          "line": "Army engineers worked to restore critical infrastructure, including power grids and water treatment facilities.",
+          "video": "military_engineers_infrastructure_repair.mp4"
+        },
+        {
+          "line": "Military logistics experts coordinated the delivery of over 1.5 million meals and 1 million gallons of fresh water to displaced civilians.",
+          "video": "military_supply_distribution.mp4"
+        },
+        {
+          "line": "The operation demonstrated the military's ability to rapidly pivot from combat operations to humanitarian assistance.",
+          "video": "military_troops_helping_civilians.mp4"
+        },
+        {
+          "line": "This showcased the versatility and readiness of modern armed forces in responding to natural disasters.",
+          "video": "military_disaster_response_team.mp4"
+        }
+    ]
+}
