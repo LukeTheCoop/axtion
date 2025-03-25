@@ -1,0 +1,22 @@
+I'll create a first-person cat script that matches the available videos while focusing on the cat's transformation journey.
+
+```json
+{
+  "config": [
+    {
+      "line": "I used to hide from the world, finding comfort in the shadows beneath my bed.",
+      "video": "cat_laying_under_bed.mp4"
+    },
+    {
+      "line": "Then I discovered joy in the simple things, like chasing a colorful ball across the floor.",
+      "video": "cat_playing_colorful_ball.mp4"
+    },
+    {
+      "line": "Now I sit here, eyes wide with wonder, realizing life's greatest adventures happen when we open our hearts.",
+      "video": "cat_sitting_teary_eyed.mp4"
+    }
+  ]
+}
+```
+
+final

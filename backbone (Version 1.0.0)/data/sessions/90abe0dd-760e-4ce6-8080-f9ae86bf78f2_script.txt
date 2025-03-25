@@ -1,0 +1,46 @@
+I'll create a sad cat story script that matches the available cat videos while being engaging for TikTok. I'll make sure each line corresponds well with the specific video clips.
+
+```json
+{
+  "config": [
+    {
+      "line": "Little Whiskers never imagined life without his mother. ",
+      "video": "cat_adult_cat_with_kitten.mp4"
+    },
+    {
+      "line": "They used to play together every day. ",
+      "video": "cat_cat_playing_with_colorful_ball.mp4"
+    },
+    {
+      "line": "And cuddle during cold nights. ",
+      "video": "cat_cats_cuddling_one_sitting_one_lying.mp4"
+    },
+    {
+      "line": "But one rainy day, his mother never came home. ",
+      "video": "cat_cat_next_to_rainy_window_alone.mp4"
+    },
+    {
+      "line": "Whiskers waited, hiding under furniture, hoping she would return. ",
+      "video": "cat_cat_lying_under_object.mp4"
+    },
+    {
+      "line": "Days passed as he watched the world outside. ",
+      "video": "cat_solo_cat_observing.mp4"
+    },
+    {
+      "line": "Sometimes he'd try to play, but his heart wasn't in it. ",
+      "video": "cat_cat_hesitant_pounce.mp4"
+    },
+    {
+      "line": "Nights were the hardest, when loneliness brought tears to his eyes. ",
+      "video": "cat_lonely_cat_watery_eyes.mp4"
+    },
+    {
+      "line": "If you've ever felt alone, remember there's always someone who understands. Adopt a shelter cat today. ",
+      "video": "cat_solo_cat_observing.mp4"
+    }
+  ]
+}
+```
+
+final

@@ -1,0 +1,53 @@
+I'll create a motivational cat video script that starts sad but becomes powerful, with a perfect hook and lines that match each video perfectly.
+
+```json
+{
+  "config": [
+    {
+      "line": "Ever felt like the world was watching you through a rainy window, judging your every move?",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "That feeling when tears well up and you wonder if anyone truly sees you.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "Sometimes we hide away from the world, retreating to our safe spaces.",
+      "video": "cat_sit_to_lie_under_bed.mp4"
+    },
+    {
+      "line": "But then comes that moment when you decide enough is enough.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "You gather your strength, ready to face whatever comes next.",
+      "video": "cat_crouched_ready_to_pounce\n\n.mp4"
+    },
+    {
+      "line": "You leap into action, refusing to be defined by your past.",
+      "video": "cat_crouching_pounce.mp4"
+    },
+    {
+      "line": "You run from the flames of doubt that once consumed you.",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    },
+    {
+      "line": "You stride confidently across new fields of opportunity.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "You rise up, showing the world what you're truly made of.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "You chase after your dreams with playful determination.",
+      "video": "cat_playing_colorful_ball.mp4"
+    },
+    {
+      "line": "And remember, you're never too small to make a big difference.",
+      "video": "cat_adult_cat_with_kitten_sitting.mp4"
+    }
+  ]
+}
+```
+final

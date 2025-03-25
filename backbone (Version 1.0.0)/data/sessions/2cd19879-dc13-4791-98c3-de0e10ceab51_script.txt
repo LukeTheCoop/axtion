@@ -1,0 +1,49 @@
+I'll create a motivational cat video script that starts sad and becomes powerful, with a strong hook and short sentences that match perfectly with the available videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "They said I was too small to survive after the fire destroyed my home.",
+      "video": "cat_kitten_destroyed_building_fire.mp4"
+    },
+    {
+      "line": "I sat alone by the window, watching the rain fall like my tears.",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "My eyes were filled with pain and uncertainty.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "The world had burned everything I knew.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "But something inside me refused to give up.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "I started small, learning to move with purpose.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "I trained my body to become stronger than my past.",
+      "video": "cat_lifting_weights_protein_shake.mp4"
+    },
+    {
+      "line": "I learned to stand tall on my own two feet.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "Now I drive forward with unstoppable determination.",
+      "video": "cat_driving_motorcycle.mp4"
+    },
+    {
+      "line": "From survivor to warrior – your past doesn't define your future.",
+      "video": "cat_crouched_ready_to_pounce.mp4"
+    }
+  ]
+}
+```
+final

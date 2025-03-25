@@ -1,0 +1,81 @@
+I'll create a motivational cat video script that starts sad and becomes powerful, with a strong hook and perfectly matched videos for each line.
+
+```json
+{
+  "config": [
+    {
+      "line": "Ever felt like the world has forgotten you? ",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "When tears seem to be your only companion. ",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "When life burns everything you've built to the ground. ",
+      "video": "cat_kitten_destroyed_building_fire.mp4"
+    },
+    {
+      "line": "And you're left standing in the ashes of what once was. ",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "But remember - even in your darkest hour, you have a choice. ",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "You can stay hidden, sheltered from the world. ",
+      "video": "cat_sit_to_lie_under_bed.mp4"
+    },
+    {
+      "line": "Or you can prepare to rise again. ",
+      "video": "cat_crouched_ready_to_pounce\n\n.mp4"
+    },
+    {
+      "line": "To leap toward your dreams with unstoppable determination. ",
+      "video": "cat_crouching_pounce.mp4"
+    },
+    {
+      "line": "To run boldly through open fields of opportunity. ",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "To escape the flames that tried to consume you. ",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    },
+    {
+      "line": "To stand tall, showing the world your strength. ",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "To reach for what you truly desire. ",
+      "video": "cat_wants_feather_from_human.mp4"
+    },
+    {
+      "line": "To find joy in the simple moments again. ",
+      "video": "cat_playing_colorful_ball.mp4"
+    },
+    {
+      "line": "To embrace those who lift you up. ",
+      "video": "cat_lifted_in_human_arms.mp4"
+    },
+    {
+      "line": "To find comfort in connection. ",
+      "video": "cat_cuddling_with_human.mp4"
+    },
+    {
+      "line": "To nurture others as you've been nurtured. ",
+      "video": "cat_adult_cat_with_kitten_sitting.mp4"
+    },
+    {
+      "line": "Because together, we are stronger. ",
+      "video": "cat_cats_cuddling_sitting_lying.mp4"
+    },
+    {
+      "line": "Your past doesn't define your future. Your resilience does. ",
+      "video": "cat_studying_at_desk.mp4"
+    }
+  ]
+}
+```
+final

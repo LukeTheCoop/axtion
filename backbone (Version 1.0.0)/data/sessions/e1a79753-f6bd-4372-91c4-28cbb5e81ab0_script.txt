@@ -1,0 +1,46 @@
+I'll create a script for a sad cat story that works with the available military videos (adapting the concept to fit what's available) and considers the emotional tone you're looking for.
+
+```json
+{
+  "config": [
+    {
+      "line": "In the vast expanse of war, even the smallest creatures find themselves alone.",
+      "video": "military_single_soldier_in_forest_building_camp.mp4"
+    },
+    {
+      "line": "Like this brave soldier, separated from his unit, fighting to survive in unfamiliar territory.",
+      "video": "military_soldier_running_in_night_nvg.mp4"
+    },
+    {
+      "line": "The battlefield becomes eerily quiet when you've lost those who guided you.",
+      "video": "military_wartorn_city_drone_shot.mp4"
+    },
+    {
+      "line": "Each day brings new challenges in this solitary existence.",
+      "video": "military_soldier_sniping_in_mountains.mp4"
+    },
+    {
+      "line": "Memories of comrades lost haunt every quiet moment.",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    },
+    {
+      "line": "The pain of separation weighs heavily on the heart.",
+      "video": "military_soldiers_walking_in_wartorn_city.mp4"
+    },
+    {
+      "line": "But even in the darkest times, hope arrives unexpectedly.",
+      "video": "military_helicopter_dropping_soldiers.mp4"
+    },
+    {
+      "line": "A rescue mission brings the promise of reunion and belonging once again.",
+      "video": "military_group_med_evac_motivational.mp4"
+    },
+    {
+      "line": "No one is truly alone when others remember their sacrifice.",
+      "video": "military_soldiers_salute_each_other.mp4"
+    }
+  ]
+}
+```
+
+final

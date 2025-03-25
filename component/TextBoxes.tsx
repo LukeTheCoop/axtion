@@ -2,19 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './TextBoxes.module.css';
 import { useConfig } from '../hooks/useConfig';
 import SaveNotification from './SaveNotification';
+import { FiCopy, FiCheck } from 'react-icons/fi';
+import { getGallery } from '@/lib/services/galleryService';
 
 interface TextBoxesProps {
   onMothershipSubmit?: (text: string) => void;
   onPromptSubmit?: (text: string) => void;
   onGenerate?: (mothershipText: string, promptText: string) => void;
+  selectedGenre?: string;
 }
 
 const TextBoxes: React.FC<TextBoxesProps> = ({
   onMothershipSubmit,
   onPromptSubmit,
-  onGenerate
+  onGenerate,
+  selectedGenre: propSelectedGenre
 }) => {
-  const { mothership: initialMothership, prompt: initialPrompt, isLoading, error } = useConfig();
+  const { mothership: initialMothership, prompt: initialPrompt, genre: initialGenre, isLoading, error } = useConfig();
   const [mothership, setMothership] = useState<string>('');
   const [prompt, setPrompt] = useState<string>('');
   const [isMothershipFocused, setIsMothershipFocused] = useState<boolean>(false);
@@ -22,6 +26,9 @@ const TextBoxes: React.FC<TextBoxesProps> = ({
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [showSaveNotification, setShowSaveNotification] = useState<boolean>(false);
   const [lastSavedField, setLastSavedField] = useState<string>('');
+  
+  // Use prop genre if provided, otherwise use the genre from config
+  const selectedGenre = propSelectedGenre || initialGenre || 'military';
 
   // Update state when config is loaded
   useEffect(() => {
@@ -37,7 +44,8 @@ const TextBoxes: React.FC<TextBoxesProps> = ({
       
       const payload = {
         mothership: mothership,
-        prompt: prompt // Always include both values
+        prompt: prompt, // Always include both values
+        genre: selectedGenre // Include the selected genre
       };
       
       console.log('Saving user config:', payload);
@@ -75,7 +83,8 @@ const TextBoxes: React.FC<TextBoxesProps> = ({
       
       const payload = {
         mothership: mothership, // Always include both values
-        prompt: prompt
+        prompt: prompt,
+        genre: selectedGenre // Include the selected genre
       };
       
       console.log('Saving user config:', payload);
@@ -130,8 +139,71 @@ const TextBoxes: React.FC<TextBoxesProps> = ({
     if (mothership.trim() || prompt.trim()) {
       if (onGenerate) {
         onGenerate(mothership, prompt);
+        
+        // Store the selected genre in localStorage for use in the generation process
+        if (selectedGenre) {
+          localStorage.setItem('selectedGenre', selectedGenre);
+        }
       }
     }
+  };
+
+  // Display the selected genre in a small indicator
+  const renderGenreIndicator = () => {
+    if (!selectedGenre) return null;
+    
+    const [isCopied, setIsCopied] = useState(false);
+    
+    const handleCopyVideos = async () => {
+      try {
+        const response = await getGallery(selectedGenre);
+        
+        if (response.success) {
+          const videoNames = Object.keys(response.data).join(', ');
+          console.log('Attempting to copy video names:', videoNames);
+          
+          try {
+            await navigator.clipboard.writeText(videoNames);
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 2000);
+            console.log('Successfully copied to clipboard');
+          } catch (clipboardError) {
+            console.error('Clipboard API error:', clipboardError);
+            // Fallback for browsers that don't support clipboard API
+            const textArea = document.createElement('textarea');
+            textArea.value = videoNames;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            setIsCopied(true);
+            setTimeout(() => setIsCopied(false), 2000);
+            console.log('Used fallback method to copy to clipboard');
+          }
+        } else {
+          console.error('Failed to fetch video names:', response.message);
+        }
+      } catch (error) {
+        console.error('Error in handleCopyVideos:', error);
+      }
+    };
+    
+    return (
+      <div className={styles.genreIndicator}>
+        <div className={styles.genreContent}>
+          <span>Category:</span> 
+          <span className={styles.genreName}>{selectedGenre}</span>
+        </div>
+        <button 
+          onClick={handleCopyVideos}
+          className={`${styles.copyButton} ${isCopied ? styles.copied : ''}`}
+          title={isCopied ? "Copied!" : "Copy video names"}
+          disabled={isCopied}
+        >
+          {isCopied ? <FiCheck /> : <FiCopy />}
+        </button>
+      </div>
+    );
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -152,6 +224,8 @@ const TextBoxes: React.FC<TextBoxesProps> = ({
       />
       
       <div className={styles.textBoxesContainer}>
+        {renderGenreIndicator()}
+        
         {/* Mothership text box */}
         <div className={`${styles.textBoxWrapper} ${isMothershipFocused ? styles.focused : ''} ${isLoading ? styles.loading : ''}`}>
           <div className={styles.textBoxHeader}>

@@ -1,0 +1,41 @@
+I'll create a sad cat story script that matches perfectly with the available cat videos. Here's my response:
+
+```json
+{
+  "config": [
+    {
+      "line": "Every night, I wait by the window hoping they'll come back for me. ",
+      "video": "cat_cat_next_to_rainy_window_alone.mp4"
+    },
+    {
+      "line": "I still remember when I wasn't alone, when I had a family that loved me. ",
+      "video": "cat_adult_cat_with_kitten.mp4"
+    },
+    {
+      "line": "We used to play together with my favorite toys. ",
+      "video": "cat_cat_playing_with_colorful_ball.mp4"
+    },
+    {
+      "line": "And cuddle close on cold nights, feeling safe and warm. ",
+      "video": "cat_cats_cuddling_one_sitting_one_lying.mp4"
+    },
+    {
+      "line": "But one day, they packed their things and left me behind. ",
+      "video": "cat_lonely_cat_watery_eyes.mp4"
+    },
+    {
+      "line": "Now I spend my days hiding from the world. ",
+      "video": "cat_cat_lying_under_object.mp4"
+    },
+    {
+      "line": "Sometimes I gather courage to explore, hoping to find them. ",
+      "video": "cat_cat_hesitant_pounce.mp4"
+    },
+    {
+      "line": "I'll keep watching and waiting, dreaming of the day someone will love me again. ",
+      "video": "cat_solo_cat_observing.mp4"
+    }
+  ]
+}
+```
+final

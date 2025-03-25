@@ -24,7 +24,9 @@ const VoiceSettings: React.FC<VoiceSettingsProps> = ({
     { id: "Edward", name: "Edward", description: "Professional male voice" },
     { id: "am_michael", name: "Michael", description: "Natural conversational voice" },
     { id: "Ethan", name: "Ethan", description: "Clear articulate male voice" },
-    { id: "Allison", name: "Allison", description: "Professional female voice" },
+    { id: "Luna", name: "Luna", description: "Professional female voice" },
+    { id: "Hannah", name: "Hannah", description: "Professional female voice" },
+    { id: "Kaitlyn", name: "Kaitlyn", description: "Whispering female voice" },
   ];
 
   const voiceConfig = useVoiceConfig();

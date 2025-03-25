@@ -1,0 +1,8 @@
+/* This file is mainly for page-specific styling */
+/* Most of the styling is contained in the component's CSS module */
+
+.pageContainer {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background-color: var(--background);
+}

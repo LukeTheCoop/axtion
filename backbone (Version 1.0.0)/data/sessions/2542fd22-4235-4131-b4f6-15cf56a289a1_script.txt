@@ -1,0 +1,37 @@
+I'll create a sad cat story script that matches the provided video clips perfectly for TikTok.
+
+```json
+{
+  "config": [
+    {
+      "line": "This is the story of Whiskers, a cat who survived against all odds.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "When we found him, he was barely breathing, his tiny body covered in ash from the fire that took his home.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "The vet wasn't sure he would make it through the night.",
+      "video": "cat_cat_playing_with_human_feather.mp4"
+    },
+    {
+      "line": "But with round-the-clock care and gentle handling, Whiskers began to show signs of improvement.",
+      "video": "cat_human_lifting_cat.mp4"
+    },
+    {
+      "line": "Days turned into weeks, and his playful spirit slowly returned.",
+      "video": "cat_cat_playing_with_human_feather.mp4"
+    },
+    {
+      "line": "Now, Whiskers has found his forever home with us.",
+      "video": "cat_cat_cuddling_in_human_arms.mp4"
+    },
+    {
+      "line": "Though he still bears the scars of his past, in our arms, he finally feels safe again.",
+      "video": "cat_cat_cuddling_in_human_arms.mp4"
+    }
+  ]
+}
+```
+final

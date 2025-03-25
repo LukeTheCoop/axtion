@@ -1,0 +1,49 @@
+I'll create a motivational cat short video script that starts sad and becomes powerful, with a perfect hook that matches the available cat videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "They said I was too small, too weak to survive the flames that took everything from me.",
+      "video": "cat_kitten_destroyed_building_fire.mp4"
+    },
+    {
+      "line": "The world seemed cold and empty as I sat alone, watching the rain fall.",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "My eyes watered with uncertainty about what tomorrow would bring.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "But then I realized - I didn't escape that burning building just to give up now.",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    },
+    {
+      "line": "I stood tall, surveying the world of possibilities around me.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "I found the strength to rise up on my own two feet.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "I pushed myself, studying and learning to overcome every obstacle.",
+      "video": "cat_studying_at_desk.mp4"
+    },
+    {
+      "line": "I reached out for what I wanted, refusing to be denied.",
+      "video": "cat_wants_feather_from_human.mp4"
+    },
+    {
+      "line": "Now I run free, covering more ground than anyone thought possible.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "Remember this: it's not about how you start, but how you finish the race.",
+      "video": "cat_crouching_pounce.mp4"
+    }
+  ]
+}
+```
+final

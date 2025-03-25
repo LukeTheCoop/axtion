@@ -8,6 +8,7 @@ export interface ConfigRequest {
 interface DataWithPrompt {
   last_used_mothership: string;
   last_used_prompt: string;
+  last_used_genre?: string;
   [key: string]: any; // Allow for additional properties
 }
 

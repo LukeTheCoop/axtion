@@ -1,0 +1,53 @@
+I'll create a motivational cat video script that starts sad and becomes powerful, with a strong hook and short sentences that match perfectly with the available cat videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "Life knocked me down and left me alone with my tears.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "I watched the world go by from my window of despair.",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "Hidden beneath my bed, I wondered if I'd ever find courage again.",
+      "video": "cat_sit_to_lie_under_bed.mp4"
+    },
+    {
+      "line": "But then I realized - weakness is temporary.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "I started with small steps, exploring new territories.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "I trained my body to become stronger than yesterday.",
+      "video": "cat_lifting_weights_protein_shake.mp4"
+    },
+    {
+      "line": "I prepared myself for every opportunity.",
+      "video": "cat_crouched_ready_to_pounce\n\n.mp4"
+    },
+    {
+      "line": "I learned to take decisive action when it matters most.",
+      "video": "cat_crouching_pounce.mp4"
+    },
+    {
+      "line": "Now I stand tall, showing the world what I'm made of.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "Because true strength isn't about never falling.",
+      "video": "cat_playing_colorful_ball.mp4"
+    },
+    {
+      "line": "It's about rising from the ashes, more powerful than before.",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    }
+  ]
+}
+```
+final

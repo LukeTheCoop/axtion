@@ -16,6 +16,25 @@ class Config:
         elif object == 'user':
             self.user_data(action, data)
 
+    def genres(self):
+        """
+        Return a list of available genre folders in the videos directory.
+        """
+        import os
+        
+        # Path to the videos directory
+        videos_path = "app/data/videos"
+        
+        # Check if the directory exists
+        if not os.path.exists(videos_path):
+            print(f"Warning: Videos directory not found at {videos_path}")
+            return []
+        
+        # Get all subdirectories (genres) in the videos directory
+        genres = [folder for folder in os.listdir(videos_path) 
+                 if os.path.isdir(os.path.join(videos_path, folder))]
+        
+        return genres
     def training_data(self):
         print(f"Training data: {self.agent}")
         if self.agent == "lite":

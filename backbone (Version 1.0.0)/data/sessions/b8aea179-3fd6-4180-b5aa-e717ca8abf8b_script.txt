@@ -1,0 +1,21 @@
+I'll create a short, engaging script with 3 sentences that match perfectly with the 3 cat videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "Playtime brings out the childlike wonder in every cat, as they pounce and swat at the simplest of toys.",
+      "video": "cat_cat_playing_with_feather.mp4"
+    },
+    {
+      "line": "When the zoomies hit, there's no stopping their lightning-fast bursts of energy across the room.",
+      "video": "cat_cat_running.mp4"
+    },
+    {
+      "line": "Even after facing the toughest challenges, a cat's resilience shines through in their determined spirit.",
+      "video": "cat_cat_young_cat_burnt_building_fire.mp4"
+    }
+  ]
+}
+```
+final

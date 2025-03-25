@@ -1,0 +1,61 @@
+I'll create a motivational cat video script that starts sad and becomes powerful, with a strong hook and short sentences that match the available cat videos perfectly.
+
+```json
+{
+  "config": [
+    {
+      "line": "Ever felt like the world was closing in on you?",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "When tears are all you have left.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "When everything you built comes crashing down.",
+      "video": "cat_kitten_destroyed_building_fire.mp4"
+    },
+    {
+      "line": "And all that remains is the aftermath of disaster.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "But inside that pain lies a choice.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "You can stay down.",
+      "video": "cat_sit_to_lie_under_bed.mp4"
+    },
+    {
+      "line": "Or you can prepare to rise.",
+      "video": "cat_crouched_ready_to_pounce\n\n.mp4"
+    },
+    {
+      "line": "To launch yourself into action.",
+      "video": "cat_crouching_pounce.mp4"
+    },
+    {
+      "line": "To rebuild stronger than before.",
+      "video": "cat_lifting_weights_protein_shake.mp4"
+    },
+    {
+      "line": "To stand tall and show your strength.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "To escape the flames of your past.",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    },
+    {
+      "line": "And stride confidently toward your future.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "Your comeback story starts now.",
+      "video": "cat_playing_colorful_ball.mp4"
+    }
+  ]
+}
+```
+final

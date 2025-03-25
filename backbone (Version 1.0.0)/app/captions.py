@@ -42,10 +42,15 @@ class CaptionAdder:
             print(f"Error loading control file: {e}")
             return False
     
-    def word_time_estimator(self, text, total_duration):
+    def word_time_estimator(self, text, total_duration, is_end_of_clip=False):
         """
         Estimates the timing for each word based on its length and the total duration.
         Longer words will get proportionally more time.
+        
+        Args:
+            text (str): The text to estimate timing for
+            total_duration (float): The total duration available for this text
+            is_end_of_clip (bool): Whether this is the last segment of a clip
         """
         # Modified regex to keep apostrophes with words and handle punctuation better
         # First split by whitespace to preserve words with apostrophes intact
@@ -75,9 +80,11 @@ class CaptionAdder:
         # Minimum duration for very short words (like "a", "I")
         min_duration = 0.15
         
-        # Adjust total duration to account for silence at the end (use 90% of total time)
-        # This creates a buffer at the end of each segment
-        adjusted_duration = total_duration * 0.9
+        # Adjust total duration to account for silence at the end
+        # If this is the end of a clip, use more strict timing to ensure no overflow
+        # to the next clip (80% instead of 90% for regular segments)
+        time_factor = 0.8 if is_end_of_clip else 0.9
+        adjusted_duration = total_duration * time_factor
         
         # Allocate time proportionally to each word's length, with a minimum duration
         word_durations = []
@@ -113,31 +120,88 @@ class CaptionAdder:
         all_clips = []
         video_width, video_height = video_size
         
+        # Process segments and identify clip boundaries
+        clip_boundaries = []
+        prev_video_path = None
+        
+        for segment in self.segments:
+            current_video_path = segment.get("video_path", "")
+            if current_video_path != prev_video_path and prev_video_path is not None:
+                clip_boundaries.append(segment["start"])
+            prev_video_path = current_video_path
+        
+        print(f"Detected clip transitions at: {clip_boundaries}")
+        
+        # Special handling for first-to-second clip transition
+        first_clip_transition = None
+        if clip_boundaries:
+            first_clip_transition = clip_boundaries[0]
+            print(f"First clip transition detected at: {first_clip_transition}")
+        
         for i, segment in enumerate(self.segments):
             start_time = segment["start"]
             end_time = segment["end"]
             text = segment["text"]
             duration = end_time - start_time
             
-            # Handle timing differently for first segment vs subsequent segments
+            # Check if this segment is the last one before a clip change
+            is_end_of_clip = False
+            for boundary in clip_boundaries:
+                # If the next segment would start at a clip boundary
+                if i < len(self.segments) - 1 and abs(self.segments[i+1]["start"] - boundary) < 0.01:
+                    is_end_of_clip = True
+                    print(f"Segment {i+1} is the last one before clip change at {boundary}")
+                    break
+            
+            # Special handling for the last segment before first clip transition
+            is_last_before_first_transition = first_clip_transition and i < len(self.segments) - 1 and abs(self.segments[i+1]["start"] - first_clip_transition) < 0.01
+            if is_last_before_first_transition:
+                print(f"Segment {i+1} is the last one before FIRST clip transition")
+            
+            # Adjust timing based on position
             if i == 0:  # First segment
                 # Add a slight delay at the beginning of the video
-                initial_delay = 0.4  # 400ms delay for first segment
+                initial_delay = 0.3  # Reduced from 0.4 to 0.3 seconds
                 adjusted_start = start_time + initial_delay
                 print(f"First segment: Adding {initial_delay}s delay")
-            else:  # Subsequent segments
-                # For later segments, start slightly earlier to account for silent gaps
-                timing_offset = 0.2  # 200ms earlier
-                adjusted_start = max(0, start_time - timing_offset)
-                print(f"Segment {i+1}: Starting {timing_offset}s earlier")
+            else:
+                # For clip transitions, be more careful with timing
+                if any(abs(start_time - boundary) < 0.01 for boundary in clip_boundaries):
+                    # This is the first segment after a clip change
+                    timing_offset = 0.4  # Increased delay after clip change from 0.3 to 0.4
+                    adjusted_start = start_time + timing_offset
+                    print(f"Segment {i+1}: First after clip change, adding {timing_offset}s delay")
+                else:
+                    # Regular segment, start slightly earlier
+                    timing_offset = 0.1  # Reduced from 0.2 to 0.1 seconds
+                    adjusted_start = max(0, start_time - timing_offset)
+                    print(f"Segment {i+1}: Regular segment, starting {timing_offset}s earlier")
+            
+            # For the last segment before a clip change, shorten duration to avoid overlap
+            segment_duration = duration
+            if is_end_of_clip:
+                # Use a larger buffer for the first clip transition
+                buffer_time = 0.7 if is_last_before_first_transition else 0.5  # Increased buffer for first transition
+                if duration > buffer_time:
+                    segment_duration = duration - buffer_time
+                    print(f"Reducing segment {i+1} duration by {buffer_time}s to avoid overlap with next clip")
             
             # Get word timing estimates
-            word_timings = self.word_time_estimator(text, duration)
+            word_timings = self.word_time_estimator(text, segment_duration, is_end_of_clip)
             
             # Create a clip for each word
             segment_start = adjusted_start
-            for word, word_duration in word_timings:
+            for j, (word, word_duration) in enumerate(word_timings):
                 try:
+                    # Special handling for last word of last segment before first clip transition
+                    if is_last_before_first_transition and j == len(word_timings) - 1:
+                        # Ensure the last word of the first clip ends well before the transition
+                        # by reducing its duration and ensuring it ends before the clip boundary
+                        safety_margin = 0.2  # Additional safety margin for the last word
+                        if segment_start + word_duration > first_clip_transition - safety_margin:
+                            word_duration = max(0.1, first_clip_transition - segment_start - safety_margin)
+                            print(f"Special handling: Reducing last word '{word}' duration of first clip to {word_duration:.2f}s")
+                    
                     # Create the text clip with the required font parameter
                     # Using the documented parameter names from MoviePy v2
                     txt_clip = TextClip(
@@ -155,6 +219,14 @@ class CaptionAdder:
                     txt_clip = txt_clip.with_position("center")
                     txt_clip = txt_clip.with_start(segment_start)
                     txt_clip = txt_clip.with_duration(word_duration)
+                    
+                    # Ensure this word doesn't cross over a clip boundary
+                    for boundary in clip_boundaries:
+                        if segment_start < boundary < segment_start + word_duration:
+                            # This word would cross a clip boundary, cut it short
+                            new_duration = max(0.1, boundary - segment_start - 0.2)  # End 0.2s before boundary (increased from 0.1)
+                            txt_clip = txt_clip.with_duration(new_duration)
+                            print(f"Cutting word '{word}' short to avoid crossing clip boundary")
                     
                     print(f"Created clip for word '{word}', starts at {segment_start:.2f}s, duration: {word_duration:.2f}s")
                     all_clips.append(txt_clip)
@@ -221,7 +293,7 @@ class CaptionAdder:
             # Close all clips to free resources
             video.close()
             
-            return True
+            return self.output_video_path
         except Exception as e:
             print(f"Error adding captions to video: {e}")
             import traceback

@@ -2,11 +2,11 @@ import { ConfigRequest, ConfigResponse } from './types';
 
 const API_BASE_URL = 'http://0.0.0.0:8000/api';
 
-export async function fetchConfig(): Promise<ConfigResponse> {
+export async function fetchConfig(genre?: string): Promise<ConfigResponse> {
   const params = new URLSearchParams({
     object: 'user',
     action: 'get',
-    genre: 'military',
+    genre: genre || '',
     agent: 'medium'
   });
 
@@ -33,11 +33,14 @@ export async function fetchConfig(): Promise<ConfigResponse> {
 export async function updateConfig(config: {
   last_used_mothership?: string;
   last_used_prompt?: string;
+  last_used_genre?: string;
 }): Promise<ConfigResponse> {
+  const genre = config.last_used_genre || '';
+  
   const params = new URLSearchParams({
     object: 'user',
     action: 'update',
-    genre: 'military',
+    genre: genre,
     agent: 'medium'
   });
 

@@ -1,0 +1,42 @@
+I'll create a sad cat story script that matches perfectly with the available video clips, designed for TikTok with the "miaw miaw miaw" song in mind.
+
+```json
+{
+  "config": [
+    {
+      "line": "Some friendships are built to last forever. ", 
+      "video": "cat_adult_cat_with_kitten.mp4"
+    },
+    {
+      "line": "Others fade away with time, leaving only memories. ", 
+      "video": "cat_cats_cuddling_one_sitting_one_lying.mp4"
+    },
+    {
+      "line": "The day my best friend left for college, I watched from our favorite window. ", 
+      "video": "cat_cat_next_to_rainy_window_alone.mp4"
+    },
+    {
+      "line": "The house feels different now, emptier somehow. ", 
+      "video": "cat_cat_lying_under_object.mp4"
+    },
+    {
+      "line": "I still play with the toys we once shared. ", 
+      "video": "cat_cat_playing_with_colorful_ball.mp4"
+    },
+    {
+      "line": "Sometimes I think I hear them coming back. ", 
+      "video": "cat_cat_hesitant_pounce.mp4"
+    },
+    {
+      "line": "But the footsteps are never theirs. ", 
+      "video": "cat_solo_cat_observing.mp4"
+    },
+    {
+      "line": "I wonder if they miss me as much as I miss them. ", 
+      "video": "cat_lonely_cat_watery_eyes.mp4"
+    }
+  ]
+}
+```
+
+final

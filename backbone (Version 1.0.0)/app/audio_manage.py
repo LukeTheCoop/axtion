@@ -10,7 +10,7 @@ class AudioManager:
     
     def __init__(self):
         """Initialize the AudioManager, loading API key from environment variables."""
-        load_dotenv()
+        load_dotenv(override=True)
         self.api_key = os.getenv("VOICE")
         self.api_url = "https://api.v8.unrealspeech.com/speech"
         self.output_dir = os.path.join("app", "data", "current")

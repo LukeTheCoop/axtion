@@ -1,0 +1,42 @@
+I'll create a sad cat story script that matches the available videos, making sure each line corresponds well with the video clips.
+
+```json
+{
+  "config": [
+    {
+      "line": "Every morning felt the same since she left. ", 
+      "video": "cat_cat_next_to_rainy_window_alone.mp4"
+    },
+    {
+      "line": "I remember when she would groom me, teaching me how to be a proper cat. ", 
+      "video": "cat_adult_cat_with_kitten.mp4"
+    },
+    {
+      "line": "Now I spend my days watching the world go by without her. ", 
+      "video": "cat_solo_cat_observing.mp4"
+    },
+    {
+      "line": "Sometimes I try to play, but my heart isn't in it anymore. ", 
+      "video": "cat_cat_hesitant_pounce.mp4"
+    },
+    {
+      "line": "The colorful toys she loved to bat around just remind me she's gone. ", 
+      "video": "cat_cat_playing_with_colorful_ball.mp4"
+    },
+    {
+      "line": "I hide away, hoping somehow she'll find me. ", 
+      "video": "cat_cat_lying_under_object.mp4"
+    },
+    {
+      "line": "The loneliness is overwhelming sometimes. ", 
+      "video": "cat_lonely_cat_watery_eyes.mp4"
+    },
+    {
+      "line": "But I found others who understand my pain, and slowly, I'm learning to love again. ", 
+      "video": "cat_cats_cuddling_one_sitting_one_lying.mp4"
+    }
+  ]
+}
+```
+
+final

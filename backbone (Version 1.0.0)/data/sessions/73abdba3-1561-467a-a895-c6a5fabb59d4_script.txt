@@ -1,0 +1,12 @@
+Looking at your request, I'll create a short 3-sentence script that perfectly matches the first 3 videos in the list.
+
+```json
+{
+"config": [
+    {"line": "Modern military airports operate with precision coordination, where every movement is calculated and every second counts.", "video": "military_airport_operations.mp4"},
+    {"line": "Out on the open waters, armored vessels unleash their firepower in a display of naval combat readiness.", "video": "military_armored_boat_shooting_in_ocean.mp4"},
+    {"line": "When combat vehicles face direct hits in desert warfare, the resulting inferno becomes a stark reminder of battlefield realities.", "video": "military_armored_vehicle_on_fire_desert.mp4"}
+]
+}
+```
+final

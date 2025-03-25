@@ -1,0 +1,49 @@
+I'll create a military-themed motivational script that starts sad but becomes powerful. Let me select appropriate videos that match the narrative arc.
+
+```json
+{
+  "config": [
+    {
+      "line": "Sometimes, the weight of duty feels like an impossible burden to bear alone.",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    },
+    {
+      "line": "The battles we face can leave us wounded, both inside and out.",
+      "video": "military_injured_soldier_getting_loaded_in_car_desert.mp4"
+    },
+    {
+      "line": "There are moments when the mission seems too daunting, the path ahead unclear.",
+      "video": "military_soldier_running_in_night_nvg.mp4"
+    },
+    {
+      "line": "But remember this: in our darkest hours, we are never truly alone.",
+      "video": "military_two_soldiers_in_camp_talking.mp4"
+    },
+    {
+      "line": "When one falls, others rise to carry the burden.",
+      "video": "military_soldiers_carrying_injured_soldiers.mp4"
+    },
+    {
+      "line": "United by purpose, we become an unstoppable force.",
+      "video": "military_soldiers_running_in_battle.mp4"
+    },
+    {
+      "line": "Every challenge we face forges us into something stronger.",
+      "video": "military_soldier_training.mp4"
+    },
+    {
+      "line": "With determination, we can overcome any obstacle.",
+      "video": "military_soldiers_running_through_the_streets_of_a_bombed_town_fighting_desert.mp4"
+    },
+    {
+      "line": "This is how legends are made - not in moments of ease, but in times of trial.",
+      "video": "military_large_battle_scene_heavy_action_aerial_shot.mp4"
+    },
+    {
+      "line": "Stand tall, stand together, and remember: your greatest victory awaits on the other side of adversity.",
+      "video": "military_soldiers_salute_each_other.mp4"
+    }
+  ]
+}
+```
+final

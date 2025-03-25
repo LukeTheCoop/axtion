@@ -12,6 +12,7 @@ export async function GET() {
       return NextResponse.json({
         mothership: config.data.last_used_mothership,
         prompt: config.data.last_used_prompt,
+        genre: config.data.last_used_genre || '',
       });
     } else {
       return NextResponse.json(
@@ -38,11 +39,13 @@ export async function POST(request: NextRequest) {
     // Get the current values to use as defaults
     const currentMothership = currentConfig.success ? (currentConfig.data.last_used_mothership || '') : '';
     const currentPrompt = currentConfig.success ? (currentConfig.data.last_used_prompt || '') : '';
+    const currentGenre = currentConfig.success ? (currentConfig.data.last_used_genre || '') : '';
     
     // Format the update payload with proper typing
     const updatePayload = {
       last_used_mothership: body.mothership !== undefined ? body.mothership : currentMothership,
       last_used_prompt: body.prompt !== undefined ? body.prompt : currentPrompt,
+      last_used_genre: body.genre !== undefined ? body.genre : currentGenre,
     };
     
     // Log the update payload

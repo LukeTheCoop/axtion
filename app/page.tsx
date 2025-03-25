@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import InitializationScreen from '../component/InitializationScreen';
 import Dashboard from '../component/Dashboard';
 import GenerationProcess from '../component/GenerationProcess';
+import GalleryButton from '../component/GalleryButton';
 import styles from './page.module.css';
 
 export default function Home() {
@@ -57,7 +58,12 @@ export default function Home() {
           onReset={handleReset}
         />
       ) : (
-        <Dashboard onGenerate={handleGenerate} />
+        <>
+          <Dashboard onGenerate={handleGenerate} />
+          <div className={styles.floatingButtonContainer}>
+            <GalleryButton />
+          </div>
+        </>
       )}
     </>
   );

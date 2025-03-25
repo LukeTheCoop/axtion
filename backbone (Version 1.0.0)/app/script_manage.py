@@ -13,6 +13,32 @@ class ScriptManager:
         
         print(f"ScriptManager initialized with output directory: {self.output_dir}")
 
+    def sanitize_video_name(self, video_name):
+        """
+        Sanitize video name by removing newlines and other problematic characters.
+        
+        Args:
+            video_name (str): Original video name from agent
+            
+        Returns:
+            str: Sanitized video name
+        """
+        # Remove newline characters
+        video_name = video_name.replace('\n', '')
+        
+        # Remove extra spaces
+        video_name = video_name.strip()
+        
+        # Ensure the .mp4 extension is properly formatted (no spaces before extension)
+        video_name = re.sub(r'\s+\.mp4$', '.mp4', video_name)
+        
+        # Make sure there's only one .mp4 extension
+        if video_name.count('.mp4') > 1:
+            parts = video_name.split('.mp4')
+            video_name = parts[0] + '.mp4'
+            
+        return video_name
+
     def extract_data(self):
         """
         Extract lines from the JSON response returned by the agent.
@@ -51,6 +77,8 @@ class ScriptManager:
                 for item in config_data:
                     if 'line' in item and 'video' in item:
                         self.full_script += item['line'] + " "
+                        # Sanitize the video name before adding it
+                        item['video'] = self.sanitize_video_name(item['video'])
                         self.videos.append(item['video'])
                 
                 self.ensure_script_format()
@@ -70,6 +98,8 @@ class ScriptManager:
                 for line, video in matches:
                     # Unescape any escaped quotes in the line
                     line = line.replace('\\"', '"')
+                    # Sanitize the video name
+                    video = self.sanitize_video_name(video)
                     result.append({"line": line, "video": video})
                     self.full_script += line + " "
                     self.videos.append(video)
@@ -90,7 +120,8 @@ class ScriptManager:
                     # Match as many lines with videos as possible
                     for i in range(min(len(lines), len(videos))):
                         line = lines[i].replace('\\"', '"')
-                        video = videos[i]
+                        # Sanitize the video name
+                        video = self.sanitize_video_name(videos[i])
                         result.append({"line": line, "video": video})
                         self.full_script += line + " "
                         self.videos.append(video)
@@ -198,6 +229,10 @@ if __name__ == "__main__":
     {
       "line": "As first light broke over the contested valley, our forward observers reported enemy movement - six T-90s advancing in formation.",
       "video": "military_six_tank_convoy.mp4"
+    },
+    {
+      "line": "I pushed myself beyond comfort zones.",
+      "video": "cat_crouched_ready_to_pounce\n\n.mp4"
     }
   ]
 }
@@ -208,6 +243,11 @@ final"""
     script_manager = ScriptManager(script)
     line_video_pairs = script_manager.extract_data()
     print(f"Successfully extracted {len(line_video_pairs)} line-video pairs.")
+    
+    # Print the sanitized video names
+    print("\nSanitized video names:")
+    for pair in line_video_pairs:
+        print(f" - {pair['video']}")
     
     # Sample timestamps data (similar to output_timestamps.json)
     sample_timestamps = [
@@ -240,6 +280,12 @@ final"""
             "end": 38.6,
             "text": "As first light broke over the contested valley, our forward observers reported enemy movement - six T-90s advancing in formation.",
             "text_offset": 501
+        },
+        {
+            "start": 38.6,
+            "end": 41.2,
+            "text": "I pushed myself beyond comfort zones.",
+            "text_offset": 630
         }
     ]
     

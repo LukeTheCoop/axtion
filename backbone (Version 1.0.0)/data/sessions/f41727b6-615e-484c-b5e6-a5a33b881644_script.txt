@@ -1,0 +1,45 @@
+I'll create a highly engaging, motivating 30-second military story script for TikTok, with each line matched to a specific video clip.
+
+```json
+{
+  "config": [
+    {
+      "line": "When disaster strikes, heroes rise from the chaos.",
+      "video": "military_wartorn_city_drone_shot.mp4"
+    },
+    {
+      "line": "In the face of overwhelming odds, our teams mobilize within minutes.",
+      "video": "military_soldiers_running_in_battle.mp4"
+    },
+    {
+      "line": "Specialized aircraft deploy to the heart of danger zones.",
+      "video": "military_helicopter_dropping_soldiers.mp4"
+    },
+    {
+      "line": "Our elite rescue units navigate through impossible terrain.",
+      "video": "military_soldiers_walking_in_wartorn_city.mp4"
+    },
+    {
+      "line": "When seconds count, coordination becomes everything.",
+      "video": "military_commander_meeting.mp4"
+    },
+    {
+      "line": "Extracting the wounded under extreme conditions.",
+      "video": "military_med_evac_soldiers_rescuing_a_soldier_desert.mp4"
+    },
+    {
+      "line": "Every mission requires sacrifice, courage, and unwavering commitment.",
+      "video": "military_soldiers_carrying_away_injured_soldiers_desert.mp4"
+    },
+    {
+      "line": "This isn't just what we do - it's who we are.",
+      "video": "military_soldiers_salute_each_other.mp4"
+    },
+    {
+      "line": "No one left behind. Ever.",
+      "video": "military_soldier_standing_in_cargo_plane_looking_towards_camera.mp4"
+    }
+  ]
+}
+```
+final

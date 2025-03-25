@@ -1,0 +1,33 @@
+I'll create a sad cat story script that matches perfectly with the available video clips. Here's a highly engaging 30-second TikTok script:
+
+```json
+{
+  "config": [
+    {
+      "line": "Some say cats have nine lives, but sometimes one life can change forever in an instant.",
+      "video": "cat_cat_chasing_feather_from_human.mp4"
+    },
+    {
+      "line": "This is the story of Whiskers, who once lived a carefree life full of play and joy.",
+      "video": "cat_cat_flexing_muscles.mp4"
+    },
+    {
+      "line": "He was loved and cherished, spending his days in the comfort of a warm home.",
+      "video": "cat_cat_cuddling_in_human_arms.mp4"
+    },
+    {
+      "line": "Until one terrible night when flames engulfed everything he knew.",
+      "video": "cat_cat_escape_building_fire.mp4"
+    },
+    {
+      "line": "Rescued but scarred, Whiskers became one of the lucky few who survived.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "Now he needs a second chance at love - will you be the one to give him a forever home?",
+      "video": "cat_cat_held_by_human.mp4"
+    }
+  ]
+}
+```
+final

@@ -1,0 +1,105 @@
+I'll create a first-person cat script that matches the available videos, focusing on building up the cat after a brief crash sequence.
+
+```json
+{
+  "config": [
+    {
+      "line": "I used to think life was all about the thrill, the speed, the rush of wind through my whiskers.",
+      "video": "cat_driving_motorcycle.mp4"
+    },
+    {
+      "line": "Until that fateful day when my recklessness caught up with me.",
+      "video": "cat_motorcycle_fire_crash.mp4"
+    },
+    {
+      "line": "I watched my old life burn away in that twisted metal.",
+      "video": "cat_in_burnt_truck.mp4"
+    },
+    {
+      "line": "Surrounded by destruction, I knew something had to change.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "With nowhere else to go, I found myself alone with my thoughts.",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "Those first days of recovery, I could barely look at myself.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "But slowly, I began to rebuild, starting with my education.",
+      "video": "cat_studying_at_desk.mp4"
+    },
+    {
+      "line": "I traded motorcycle engines for keyboard clicks.",
+      "video": "cat_typing_office_desk.mp4"
+    },
+    {
+      "line": "Learning became my new passion.",
+      "video": "cat_classroom_desk_laptop.mp4"
+    },
+    {
+      "line": "I discovered the simple joy of creating a home-cooked meal.",
+      "video": "cat_cooking_steak_frying_pan.mp4"
+    },
+    {
+      "line": "I built strength the right way this time, with discipline and purpose.",
+      "video": "cat_lifting_weights_protein_shake.mp4"
+    },
+    {
+      "line": "Sometimes I'd flex a little, just to remind myself how far I'd come.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "I learned to appreciate the small things, like a colorful toy that once seemed beneath me.",
+      "video": "cat_playing_colorful_ball.mp4"
+    },
+    {
+      "line": "I started venturing out again, but with mindfulness rather than recklessness.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "I became more observant of the world around me.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "I even learned to enjoy mundane errands like grocery shopping.",
+      "video": "cat_shopping_in_grocery_store.mp4"
+    },
+    {
+      "line": "Most importantly, I rediscovered connection.",
+      "video": "cat_cuddling_with_human.mp4"
+    },
+    {
+      "line": "I learned to trust and be trusted again.",
+      "video": "cat_lifted_in_human_arms.mp4"
+    },
+    {
+      "line": "To play and be playful without needing to be the center of attention.",
+      "video": "cat_wants_feather_from_human.mp4"
+    },
+    {
+      "line": "I found joy in mentoring those younger than me.",
+      "video": "cat_adult_cat_with_kitten_sitting.mp4"
+    },
+    {
+      "line": "And discovered the comfort of genuine companionship.",
+      "video": "cat_cats_cuddling_sitting_lying.mp4"
+    },
+    {
+      "line": "Even in quiet moments, just watching the world go by.",
+      "video": "cat_looking_crouched.mp4"
+    },
+    {
+      "line": "Now I find peace in the simplest pleasures.",
+      "video": "cat_sit_to_lie_under_bed.mp4"
+    },
+    {
+      "line": "Eyes wide open to all life has to offer.",
+      "video": "cat_laying_in_living_room_wide_eyed.mp4"
+    }
+  ]
+}
+```
+final

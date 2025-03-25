@@ -16,7 +16,7 @@ import json
 import os
 import re
 import sys
-
+import shutil
 # Import the components from our app
 sys.path.append('./app')
 from app.audio_manage import AudioManager
@@ -26,6 +26,9 @@ from app.captions import CaptionAdder
 from app.config import Config
 from app.agent import Agent_Medium
 from app.delivery import Delivery
+
+#gallery
+from app.gallery.gallery import Gallery
 
 # Create a session manager for state persistence
 class SessionManager:
@@ -101,6 +104,60 @@ class ConfigResponse(BaseModel):
     genre: Optional[str] = None
     agent: Optional[str] = None
 
+@app.get("/api/genres", tags=["Config"])
+async def get_genres():
+    """
+    Get a list of available genre folders in the videos directory.
+    """
+    config = Config("", "")  # Initialize with empty strings as we only need the genres method
+    genres = config.genres()
+    
+    return GenericResponse(
+        success=True,
+        message="Genres retrieved successfully",
+        data={"genres": genres}
+    )
+
+@app.post("/api/genres/delete", tags=["Config"])
+async def delete_genre(genre: str):
+    """
+    Delete a genre folder in the videos directory.
+    """
+    """
+    Delete a genre folder in the videos directory.
+    """
+    try:
+        # Construct the path to the genre folder
+        genre_path = f"app/data/videos/{genre}"
+        
+        # Check if the folder exists
+        if not os.path.exists(genre_path):
+            raise HTTPException(
+                status_code=404,
+                detail=f"Genre folder not found: {genre}"
+            )
+        
+        # Delete the folder and all its contents
+        shutil.rmtree(genre_path)
+        
+        # Get updated list of genres
+        config = Config("", "")
+        genres = config.genres()
+        
+        print(f"Genre folder deleted: {genre}")
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error deleting genre folder: {str(e)}"
+        )
+    
+    return GenericResponse(
+        success=True,
+        message="Genres retrieved successfully",
+        data={"genres": genres}
+    )
+
+
 @app.post("/api/config", response_model=ConfigResponse, tags=["Config"])
 async def update_config(
     object: Optional[str] = None,
@@ -132,7 +189,7 @@ class SessionRequest(BaseModel):
 class GenericResponse(BaseModel):
     success: bool
     message: str
-    data: Optional[dict] = None
+    data: Any = None
     session_id: Optional[str] = None
 
 def sanitize_script(script):
@@ -493,7 +550,7 @@ async def add_music(request: SessionRequest):
     
     # If we have music parameters stored in the session, use those instead of getting from config
     if stored_youtube_url or stored_volume is not None or stored_start_time is not None:
-        youtube_url = stored_youtube_url or "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        youtube_url = stored_youtube_url or "https://www.youtube.com/watch?v=AtPrjYp75uA"
         volume = 50 if stored_volume is None else stored_volume
         start_time = 0 if stored_start_time is None else stored_start_time
         print(f"Using stored music parameters: url={youtube_url}, volume={volume}, start_time={start_time}")
@@ -603,6 +660,99 @@ async def get_video_url(request: SessionRequest):
         data={"video_url": result['video_url']}, 
         session_id=request.session_id
     )
+
+
+#GALLERY API
+class GenreRequest(BaseModel):
+    genre: str
+
+class GalleryUploadRequest(BaseModel):
+    genre: str
+    description: str
+    video_url: str
+
+class GalleryDeleteRequest(BaseModel):
+    genre: str
+    video_name: str
+
+@app.post("/api/gallery/create")
+async def create_gallery(request: GenreRequest):
+    """
+    Create a new gallery for a genre.
+    """
+    gallery = Gallery(request.genre)
+
+    return GenericResponse(
+        success=True,
+        message="Gallery created successfully",
+        data={"genre": request.genre},
+    )
+
+@app.post("/api/gallery/upload")
+async def upload_to_gallery(request: GalleryUploadRequest):
+    """
+    Upload a video to the gallery.
+    """
+    gallery = Gallery(request.genre)
+    gallery.upload_pipeline(request.video_url, request.description)
+
+    return GenericResponse(
+        success=True,
+        message="Video uploaded to gallery successfully",
+        data={"genre": request.genre},
+    )
+
+
+@app.get("/api/gallery/get")
+async def get_gallery(genre: str):
+    """
+    Get the gallery for a genre.
+    """
+    # Construct the path to the screenshots JSON file
+    screenshots_path = f"app/data/videos/{genre}/screenshots/screenshot.json"
+    
+    # Check if the file exists
+    if not os.path.exists(screenshots_path):
+        raise HTTPException(
+            status_code=404,
+            detail=f"Screenshots not found for genre: {genre}"
+        )
+    
+    # Read and return the full JSON content
+    try:
+        with open(screenshots_path, 'r') as file:
+            screenshots_data = json.load(file)
+        
+        print(f"Gallery retrieved for genre: {genre}")
+        print(f"Screenshots data: {screenshots_data}")
+        
+        return GenericResponse(
+            success=True,
+            message=f"Gallery retrieved for genre: {genre}",
+            data=screenshots_data,
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error reading screenshots data: {str(e)}"
+        )
+
+@app.post("/api/gallery/delete")
+async def delete_from_gallery(request: GalleryDeleteRequest):
+    """
+    Delete a video from the gallery.
+    """
+    gallery = Gallery(request.genre)
+    gallery.delete_video(request.video_name)
+
+    return GenericResponse(
+        success=True,
+        message="Video deleted from gallery successfully",
+    )
+
+
+
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

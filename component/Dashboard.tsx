@@ -5,6 +5,10 @@ import AgentSelector from './AgentSelector';
 import VoiceSettings from './VoiceSettings';
 import MusicSettings from './MusicSettings';
 import AgentPrompt from './AgentPrompt';
+import HeaderGenreSelector from './HeaderGenreSelector';
+import GalleryButton from './GalleryButton';
+import { useRouter } from 'next/navigation';
+import { useConfig } from '../hooks/useConfig';
 
 type ActiveView = 'dashboard' | 'voice' | 'music' | 'agent';
 
@@ -12,7 +16,7 @@ interface DashboardProps {
   children?: ReactNode;
   sidebarContent?: ReactNode;
   headerContent?: ReactNode;
-  onGenerate?: (mothershipText: string, promptText: string) => void;
+  onGenerate: (mothership: string, prompt: string) => void;
 }
 
 export default function Dashboard({ 
@@ -21,14 +25,33 @@ export default function Dashboard({
   headerContent,
   onGenerate
 }: DashboardProps) {
+  const router = useRouter();
+  const { genre: configGenre, isLoading: configLoading } = useConfig();
   const [activeView, setActiveView] = useState<ActiveView>('dashboard');
   const [stars, setStars] = useState<{ id: number; size: number; top: string; left: string; delay: number }[]>([]);
   const [currentAgent, setCurrentAgent] = useState<string>('Medium');
+  const [selectedGenre, setSelectedGenre] = useState<string>('');
+  
+  // Initialize selectedGenre from config when it loads
+  useEffect(() => {
+    if (!configLoading && configGenre) {
+      setSelectedGenre(configGenre);
+    }
+  }, [configGenre, configLoading]);
   
   const handleAgentChange = (agentType: string) => {
     console.log('Agent changed to:', agentType);
     setCurrentAgent(agentType);
     // Add additional logic for agent change if needed
+  };
+
+  const handleGenreChange = (genre: string) => {
+    console.log('Genre changed to:', genre);
+    setSelectedGenre(genre);
+  };
+
+  const handleNavigateToGallery = () => {
+    router.push('/gallery');
   };
 
   // Generate random stars for the background
@@ -52,7 +75,7 @@ export default function Dashboard({
   const renderActiveView = () => {
     switch (activeView) {
       case 'dashboard':
-        return children || <TextBoxes onGenerate={onGenerate} />;
+        return children || <TextBoxes onGenerate={onGenerate} selectedGenre={selectedGenre} />;
       case 'voice':
         return <VoiceSettings />;
       case 'music':
@@ -60,7 +83,7 @@ export default function Dashboard({
       case 'agent':
         return <AgentPrompt />;
       default:
-        return <TextBoxes onGenerate={onGenerate} />;
+        return <TextBoxes onGenerate={onGenerate} selectedGenre={selectedGenre} />;
     }
   };
 
@@ -95,6 +118,11 @@ export default function Dashboard({
             <h1 className={styles.headerTitle}>Axtion AI</h1>
             <div className={styles.headerActions}>
               <AgentSelector onAgentChange={handleAgentChange} />
+              <HeaderGenreSelector
+                selectedGenre={selectedGenre}
+                onSelectGenre={handleGenreChange}
+              />
+              <GalleryButton />
             </div>
           </div>
         )}
@@ -137,6 +165,13 @@ export default function Dashboard({
                 >
                   <div className={styles.navIcon}></div>
                   <span className={styles.navLabel}>{`${currentAgent} Prompt`}</span>
+                </div>
+                <div 
+                  className={styles.navItem}
+                  onClick={handleNavigateToGallery}
+                >
+                  <div className={styles.navIcon}></div>
+                  <span className={styles.navLabel}>Gallery</span>
                 </div>
               </nav>
               

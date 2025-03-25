@@ -3,12 +3,29 @@ import json
 import os
 
 class VideoMerger:
-    def __init__(self, video_control_path, video_directory="app/data/videos/military", 
+    def __init__(self, video_control_path, video_directory=None, 
                  temp_output_path="app/data/current/output.mp4",
                  final_output_path="app/data/current/output_pre_captions.mp4",
                  audio_path="app/data/current/output_audio.mp3"):
         self.video_control_path = video_control_path
-        self.video_directory = video_directory
+        # If video_directory not provided, determine from the video control file
+        if video_directory is None:
+            # Extract genre from first video filename in control file
+            try:
+                with open(video_control_path, 'r') as file:
+                    segments = json.load(file)
+                    if segments and 'video' in segments[0]:
+                        # Extract genre from first part of filename (e.g., cat_***.mp4 -> cat)
+                        genre = segments[0]['video'].split('_')[0]
+                        self.video_directory = f"app/data/videos/{genre}"
+                    else:
+                        # Fallback to default
+                        self.video_directory = "app/data/videos/cat"
+            except Exception:
+                # Fallback to default
+                self.video_directory = "app/data/videos/cat"
+        else:
+            self.video_directory = video_directory
         self.temp_output_path = temp_output_path  # Path for the video-only output
         self.final_output_path = final_output_path  # Path for the final video with audio
         self.audio_path = audio_path  # Path to the audio file
@@ -103,20 +120,30 @@ class VideoMerger:
             for clip in self.clips:
                 # If clip has the "needs_loop" attribute and it's True, we need to manually handle looping
                 if hasattr(clip, 'needs_loop') and clip.needs_loop:
-                    # Create copies of the same clip and concatenate them
-                    loop_count = int(clip.duration / (clip.duration / 2)) + 1
-                    loop_duration = clip.duration / loop_count
+                    # Calculate how many times we need to loop the clip to reach the required duration
+                    try:
+                        # Try to get the original duration from reader
+                        original_duration = clip.reader.duration
+                    except (AttributeError, Exception) as e:
+                        # Fallback if reader.duration is not available
+                        print(f"  Could not access reader.duration: {e}")
+                        original_duration = clip.duration  # Use the current duration as fallback
                     
-                    # Create multiple clips with adjusted durations
+                    # Calculate how many times we need to loop
+                    required_duration = clip.duration
+                    loop_count = max(2, int(required_duration / original_duration) + 1)
+                    print(f"  Looping video {loop_count} times to reach {required_duration:.2f}s from original {original_duration:.2f}s")
+                    
+                    # Create multiple clips with the original duration
                     loop_clips = []
                     for _ in range(loop_count):
                         loop_clip = VideoFileClip(clip.filename, audio=False)
-                        loop_clip.duration = loop_duration
                         loop_clips.append(loop_clip)
                     
                     # Concatenate the loop clips
                     looped_clip = concatenate_videoclips(loop_clips, method="compose")
-                    looped_clip.duration = clip.duration  # Ensure exact duration
+                    # Trim to exact duration needed
+                    looped_clip = looped_clip.subclip(0, clip.duration)
                     final_clips.append(looped_clip)
                 else:
                     final_clips.append(clip)

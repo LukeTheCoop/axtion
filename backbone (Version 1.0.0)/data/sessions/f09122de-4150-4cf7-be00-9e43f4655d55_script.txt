@@ -1,0 +1,49 @@
+I'll create a sad cat story script that works with the military footage we have available, adapting it to tell an emotional story while being mindful of the available videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "In the midst of chaos, a small military camp became home to a tiny orphaned kitten. ",
+      "video": "military_two_soldiers_in_camp_talking.mp4"
+    },
+    {
+      "line": "Found alone during a routine patrol, the soldiers named her Sergeant Whiskers. ",
+      "video": "military_soldiers_walking_in_wartorn_city.mp4"
+    },
+    {
+      "line": "She would watch from a distance as helicopters came and went. ",
+      "video": "military_helicopter_base_with_soldiers_running_in_and_out_desert.mp4"
+    },
+    {
+      "line": "The commanding officer grew fond of her, even breaking protocol to care for her. ",
+      "video": "military_captain_giving_instructions.mp4"
+    },
+    {
+      "line": "When storms came, she'd hide in the medical tent, seeking comfort from the chaos. ",
+      "video": "military_soldiers_carrying_injured_soldiers.mp4"
+    },
+    {
+      "line": "As winter approached, the base received orders to evacuate. ",
+      "video": "military_commander_meeting.mp4"
+    },
+    {
+      "line": "The soldiers prepared to leave, packing up their equipment with heavy hearts. ",
+      "video": "military_soldiers_walking_away_from_metal_base_blue_lights.mp4"
+    },
+    {
+      "line": "One brave soldier made a decision - Sergeant Whiskers would not be left behind. ",
+      "video": "military_soldier_standing_in_cargo_plane_looking_towards_camera.mp4"
+    },
+    {
+      "line": "Against all odds, he carried her through dangerous terrain to safety. ",
+      "video": "military_single_soldier_in_forest_building_camp.mp4"
+    },
+    {
+      "line": "Today, Sergeant Whiskers has a forever home, but still misses her mother every day. ",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    }
+  ]
+}
+```
+final

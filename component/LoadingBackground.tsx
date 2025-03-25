@@ -8,9 +8,13 @@ interface LoadingBackgroundProps {
 const LoadingBackground: React.FC<LoadingBackgroundProps> = ({ children }) => {
   const [animatedLines, setAnimatedLines] = useState<Array<{ id: number, x1: number, y1: number, x2: number, y2: number, color: string, thickness: number }>>([]);
   const [neuralNodes, setNeuralNodes] = useState<Array<{ id: number, x: number, y: number, size: number, pulseDelay: number }>>([]);
+  const [dataParticles, setDataParticles] = useState<Array<{ id: number, left: string, top: string, delay: string }>>([]);
+  const [isClientSide, setIsClientSide] = useState(false);
   
-  // Generate dynamic elements on mount
+  // Set initial client-side state
   useEffect(() => {
+    setIsClientSide(true);
+    
     // Create animated network lines
     const lines = [];
     for (let i = 0; i < 15; i++) {
@@ -38,7 +42,32 @@ const LoadingBackground: React.FC<LoadingBackgroundProps> = ({ children }) => {
       });
     }
     setNeuralNodes(nodes);
+    
+    // Create data particles
+    const particles = [];
+    for (let i = 0; i < 20; i++) {
+      particles.push({
+        id: i,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        delay: `${i * 0.1}s`
+      });
+    }
+    setDataParticles(particles);
   }, []);
+
+  // Server-side or initial client render - use empty arrays or static values
+  if (!isClientSide) {
+    return (
+      <div className={styles.loadingBackground}>
+        {children && (
+          <div className={styles.childrenContainer}>
+            {children}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={styles.loadingBackground}>
@@ -153,14 +182,14 @@ const LoadingBackground: React.FC<LoadingBackgroundProps> = ({ children }) => {
         </div>
         
         <div className={styles.dataStream}>
-          {Array.from({ length: 20 }).map((_, index) => (
+          {dataParticles.map(particle => (
             <div 
-              key={`data-${index}`} 
+              key={`data-${particle.id}`} 
               className={styles.dataParticle}
               style={{ 
-                animationDelay: `${index * 0.1}s`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`
+                animationDelay: particle.delay,
+                left: particle.left,
+                top: particle.top
               }}
             ></div>
           ))}

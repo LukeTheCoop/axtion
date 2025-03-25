@@ -1,0 +1,69 @@
+I'll create a motivational cat video script that starts sad and becomes powerful, with a strong hook and short sentences that match perfectly with the available cat videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "Life knocked me down, just like it knocked you down too.",
+      "video": "cat_sitting_watery_eyes.mp4"
+    },
+    {
+      "line": "I watched my dreams burn away in an instant.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    },
+    {
+      "line": "Alone with my thoughts as the rain fell outside.",
+      "video": "cat_sitting_alone_rainy_window.mp4"
+    },
+    {
+      "line": "I hid from the world, afraid to face another day.",
+      "video": "cat_sit_to_lie_under_bed.mp4"
+    },
+    {
+      "line": "But then I remembered who I really am.",
+      "video": "cat_standing_looking_around.mp4"
+    },
+    {
+      "line": "I started small, testing my strength.",
+      "video": "cat_half_on_stairs_tapping.mp4"
+    },
+    {
+      "line": "I pushed myself beyond comfort zones.",
+      "video": "cat_crouched_ready_to_pounce\n\n.mp4"
+    },
+    {
+      "line": "I took bold action when opportunity appeared.",
+      "video": "cat_crouching_pounce.mp4"
+    },
+    {
+      "line": "I ran from the flames of my past.",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    },
+    {
+      "line": "I found joy in the simple things again.",
+      "video": "cat_playing_colorful_ball.mp4"
+    },
+    {
+      "line": "I moved forward with powerful strides.",
+      "video": "cat_long_strides_grass_field.mp4"
+    },
+    {
+      "line": "I showed the world my true strength.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "Now I reach for what I want without hesitation.",
+      "video": "cat_wants_feather_from_human.mp4"
+    },
+    {
+      "line": "I embrace the support of those who lift me up.",
+      "video": "cat_lifted_in_human_arms.mp4"
+    },
+    {
+      "line": "Remember: Your setbacks don't define your comeback story.",
+      "video": "cat_studying_at_desk.mp4"
+    }
+  ]
+}
+```
+final

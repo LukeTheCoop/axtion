@@ -34,3 +34,73 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Dashboard Button */
+.dashboardButtonContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+  position: relative;
+  z-index: 5;
+}
+
+.dashboardButton {
+  background: linear-gradient(90deg, #00c797, #00e5b3);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.75rem 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 229, 179, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboardButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #00e5b3, #59ffdb);
+  mask: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 2s infinite;
+  z-index: 1;
+}
+
+.dashboardButton span {
+  position: relative;
+  z-index: 2;
+}
+
+.dashboardButton svg {
+  position: relative;
+  z-index: 2;
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboardButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 229, 179, 0.4);
+  background: linear-gradient(90deg, #00e5b3, #4d7cff);
+}
+
+.dashboardButton:hover svg {
+  transform: rotate(90deg);
+}
+
+/* Video Card Fixes */
+.videoInfo {
+  padding: 1rem 1rem 1.5rem !important;
+}
+
+.videoDescription {
+  margin-bottom: 1.25rem !important;
+}

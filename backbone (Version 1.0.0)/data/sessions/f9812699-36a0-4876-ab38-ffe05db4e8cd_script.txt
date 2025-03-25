@@ -1,0 +1,45 @@
+Let me create a script for a sad cat story that will work effectively with the military footage available. I'll make it about a metaphorical "cat" (soldier) who loses their unit/team (mother).
+
+```json
+{
+  "config": [
+    {
+      "line": "In the chaos of war, some soldiers become separated from their units, like lost kittens in a storm. ",
+      "video": "military_soldiers_walking_in_wartorn_city.mp4"
+    },
+    {
+      "line": "This is the story of one such soldier, who watched as his team was deployed without him. ",
+      "video": "military_soldier_standing_in_cargo_plane_looking_towards_camera.mp4"
+    },
+    {
+      "line": "Day after day, he scanned the horizon, hoping for their return. ",
+      "video": "military_soldier_sniping_in_mountains.mp4"
+    },
+    {
+      "line": "The nights were the hardest, alone with his thoughts and the distant sounds of conflict. ",
+      "video": "military_soldier_running_in_night_nvg.mp4"
+    },
+    {
+      "line": "He built a small camp, waiting for any sign of his brothers in arms. ",
+      "video": "military_single_soldier_in_forest_building_camp.mp4"
+    },
+    {
+      "line": "Sometimes he would see other units passing by, reminding him of what he had lost. ",
+      "video": "military_soldiers_running_in_battle.mp4"
+    },
+    {
+      "line": "In quiet moments, he remembered those who never made it home. ",
+      "video": "military_soldier_at_funeral_for_comrades.mp4"
+    },
+    {
+      "line": "Until one day, against all odds, a rescue team appeared on the horizon. ",
+      "video": "military_helicopter_dropping_soldiers.mp4"
+    },
+    {
+      "line": "They had never forgotten him, just as he had never forgotten them. ",
+      "video": "military_soldiers_salute_each_other.mp4"
+    }
+  ]
+}
+```
+final

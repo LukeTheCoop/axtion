@@ -27,6 +27,7 @@ const GenerationProcess: React.FC<GenerationProcessProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [genre, setGenre] = useState<string>('military'); // Default genre
 
   // For debugging - log the props
   useEffect(() => {
@@ -40,7 +41,7 @@ const GenerationProcess: React.FC<GenerationProcessProps> = ({
       description: "Creating an optimized script for your video using advanced AI language models.",
       icon: <FiCode />,
       apiCall: async (sessionId: string) => {
-        return generationApi.generateScript(mothership, prompt, "military", "medium", sessionId);
+        return generationApi.generateScript(mothership, prompt, genre, "medium", sessionId);
       }
     },
     {
@@ -156,7 +157,7 @@ const GenerationProcess: React.FC<GenerationProcessProps> = ({
         return response;
       }
     },
-  ], [mothership, prompt]);
+  ], [mothership, prompt, genre]);
 
   // Generate session ID and start generation process on component mount
   useEffect(() => {
@@ -166,6 +167,15 @@ const GenerationProcess: React.FC<GenerationProcessProps> = ({
     
     // Start the generation process
     setIsGenerating(true);
+  }, []);
+
+  useEffect(() => {
+    // Get selected genre from localStorage
+    const savedGenre = localStorage.getItem('selectedGenre');
+    if (savedGenre) {
+      setGenre(savedGenre);
+      console.log('Using saved genre from localStorage:', savedGenre);
+    }
   }, []);
 
   // Handle the API calls for each step

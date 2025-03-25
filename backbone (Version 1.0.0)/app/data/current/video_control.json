@@ -1,72 +1,23 @@
 [
   {
     "start": 0.0,
-    "end": 7.525,
-    "text": "What was once a thriving metropolis now stands in ruins, a testament to the brutality of urban warfare. ",
+    "end": 4.8,
+    "text": "I used to hide from the world, finding comfort in the shadows beneath my bed. ",
     "text_offset": 0,
-    "video": "military_wartorn_city_drone_shot.mp4"
+    "video": "cat_laying_under_bed.mp4"
   },
   {
-    "start": 7.525,
-    "end": 14.15,
-    "text": "Our unit was sent in to clear the remaining hostiles, moving cautiously through streets we once swore to protect. ",
-    "text_offset": 104,
-    "video": "military_soldiers_walking_in_wartorn_city.mp4"
+    "start": 4.8,
+    "end": 9.774999999999999,
+    "text": "Then I discovered joy in the simple things, like chasing a colorful ball across the floor. ",
+    "text_offset": 78,
+    "video": "cat_playing_colorful_ball.mp4"
   },
   {
-    "start": 14.15,
-    "end": 19.45,
-    "text": "Gunfire erupted from windows above, forcing us to take defensive positions. ",
-    "text_offset": 218,
-    "video": "military_shooting_out_of_window_city.mp4"
-  },
-  {
-    "start": 19.45,
-    "end": 24.65,
-    "text": "We pushed forward through the chaos, each step bringing us deeper into the heart of the conflict. ",
-    "text_offset": 294,
-    "video": "military_soldiers_running_in_city_action.mp4"
-  },
-  {
-    "start": 24.65,
-    "end": 30.775,
-    "text": "Our team breached a building where hostages were being held, every second critical to their survival. ",
-    "text_offset": 392,
-    "video": "military_soldier_running_through_a_building_with_a_gun_hostages.mp4"
-  },
-  {
-    "start": 30.775,
-    "end": 36.1,
-    "text": "From my position, I could spot enemy movements across the devastated landscape. ",
-    "text_offset": 494,
-    "video": "military_soldier_sniping_out_of_building.mp4"
-  },
-  {
-    "start": 36.1,
-    "end": 39.075,
-    "text": "Then came the explosion that changed everything. ",
-    "text_offset": 574,
-    "video": "military_running_from_bombs_fire_desert.mp4"
-  },
-  {
-    "start": 39.075,
-    "end": 40.900000000000006,
-    "text": "Rodriguez was down. ",
-    "text_offset": 623,
-    "video": "military_med_evac_city.mp4"
-  },
-  {
-    "start": 40.900000000000006,
-    "end": 45.825,
-    "text": "We rushed to evacuate him through the contested streets, every moment under fire. ",
-    "text_offset": 643,
-    "video": "military_soldiers_carrying_injured_soldiers.mp4"
-  },
-  {
-    "start": 45.825,
-    "end": 49.975,
-    "text": "His last words were for his family as we carried him to safety. ",
-    "text_offset": 725,
-    "video": "military_soldier_at_funeral_for_comrades.mp4"
+    "start": 9.774999999999999,
+    "end": 15.899999999999999,
+    "text": "Now I sit here, eyes wide with wonder, realizing life's greatest adventures happen when we open our hearts. ",
+    "text_offset": 169,
+    "video": "cat_sitting_teary_eyed.mp4"
   }
 ]

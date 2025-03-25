@@ -1,0 +1,25 @@
+I'll create a short, engaging 4-sentence script that perfectly matches each of the available cat videos.
+
+```json
+{
+  "config": [
+    {
+      "line": "Meet Felix, the bodybuilder cat who trains every day to maintain his impressive physique.",
+      "video": "cat_on_hind_legs_flexing_muscles.mp4"
+    },
+    {
+      "line": "After his gym caught fire last week, he made a daring escape that was captured on security cameras.",
+      "video": "cat_running_out_flaming_building_window.mp4"
+    },
+    {
+      "line": "Now recovering from his ordeal, Felix spends his days hitting the books to learn about fire safety.",
+      "video": "cat_studying_at_desk.mp4"
+    },
+    {
+      "line": "His inspiring story of resilience has made him a role model for other young cats who have survived similar disasters.",
+      "video": "cat_young_cat_burnt_building_fire.mp4"
+    }
+  ]
+}
+```
+final
